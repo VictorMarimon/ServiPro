@@ -4,6 +4,7 @@ Registro y Gestión de Usuarios:
 -Operaciones CRUD para crear, leer, actualizar y eliminar perfiles de usuarios.
 -Captura de información detallada de cada usuario, incluyendo nombre, dirección, información de contacto, entre otros.
 -Funcionalidad para asignar categorías de usuarios, como nuevos clientes, clientes regulares y clientes leales.
+(clasificaciòn claro (oficial): https://claroclub.com.co/perfil/terminos-condiciones)
 
 Seguimiento del Historial de Usuarios:
 
