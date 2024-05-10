@@ -1,0 +1,49 @@
+Funcionalidades Requeridas para el Módulo de Usuarios (Administrador)
+Registro y Gestión de Usuarios:
+
+-Operaciones CRUD para crear, leer, actualizar y eliminar perfiles de usuarios.
+-Captura de información detallada de cada usuario, incluyendo nombre, dirección, información de contacto, entre otros.
+-Funcionalidad para asignar categorías de usuarios, como nuevos clientes, clientes regulares y clientes leales.
+(clasificaciòn claro (oficial): https://claroclub.com.co/perfil/terminos-condiciones)
+
+Seguimiento del Historial de Usuarios:
+
+-Registro y almacenamiento de servicios utilizados por cada usuario.
+-Seguimiento de las interacciones de los usuarios con la empresa, como consultas de servicio al cliente, reclamaciones y sugerencias.
+
+Personalización de Servicios:
+
+-Utilización de datos de usuario para ofrecer servicios y promociones personalizadas.
+-Análisis de patrones de comportamiento de los usuarios para adaptar
+
+Gestión de las ventas:
+
+-Registro de productos vendidos en un catálogo de productos con sus marcas, referencias, cantidades, valores, etc.
+-Registro de ventas de servicios y productos donde se asocien con los clientes que los adquieren.
+
+
+Funcionalidades Requeridas para Cada Módulo
+
+Módulo de Gestión de Servicios:
+
+-Operaciones CRUD para cada tipo de servicio ofrecido, como Internet de Fibra Óptica, planes pospago, prepago, etc.
+-Capacidad para agregar, modificar y eliminar servicios según sea necesario.
+-Registro de información detallada sobre cada servicio, incluyendo características, precios, entre otros.
+
+Módulo de Reportes:
+
+-Generación de informes sobre la cantidad de productos/servicios ofrecidos por la empresa.
+-Análisis de datos para identificar los servicios más populares que se prestan por la empresa.
+-Informes sobre usuarios que han adquirido cada servicio o producto y con ello la cantidad de este mismo.
+
+Módulo de ventas:
+
+-Registro de productos y servicios basados en sus características necesarias para que los empleados puedan ofrecerlos.
+-Registro de cada una de las ventas, tanto de servicios como de productos. Así como, un registro de fechas de compra, cantidades, estado, etc.
+
+
+Requerimientos Técnicos
+
+-Uso de archivos JSON para la persistencia de datos.
+-Manejo de los principios CRUD (Crear, Leer, Actualizar y Eliminar).
+-Manejo de errores y excepciones para garantizar que el flujo del programa no se detenga, registrando las excepciones capturadas con fecha en un archivo txt.
