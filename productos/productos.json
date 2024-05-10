@@ -1,0 +1,28 @@
+{
+    "productos": [
+        {
+            "telefonos": [
+                {
+                    "id": 0,
+                    "referencia": "X12",
+                    "nombre": "Iphone 12",
+                    "precio": 50,
+                    "fecha_creacion": "02/02/2024",
+                    "eliminado": false
+                },
+                {
+                    "id": 2,
+                    "referencia": "X13",
+                    "nombre": "Iphone 13",
+                    "precio": 5000000,
+                    "fecha_creacion": "02/02/2024",
+                    "eliminado": true
+                }
+            ],
+            "computadores": [],
+            "accesorios": [],
+            "tablets": [],
+            "electrodomesticos": []
+        }
+    ]
+}
