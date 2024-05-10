@@ -1,6 +1,29 @@
 {
-    "servicios": [{
-
-    }]
-
+    "servicios": [
+        {
+            "telefonia": [
+                {
+                    "id": 0,
+                    "referencia": "14NB",
+                    "nombre": "minutos limitados",
+                    "precio": 5000,
+                    "fecha_creacion": "10/05/2024",
+                    "eliminado": true
+                }
+            ],
+            "internet": [
+                {
+                    "id": 0,
+                    "referencia": "4123NS",
+                    "nombre": "wifi ilimitado",
+                    "precio": 150000,
+                    "fecha_creacion": "10/04/2024",
+                    "eliminado": false
+                }
+            ],
+            "television": [],
+            "datos": [],
+            "minutos": []
+        }
+    ]
 }
