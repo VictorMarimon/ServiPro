@@ -7,8 +7,8 @@
             "direccion": "carrera 12",
             "telefono": 213241231,
             "email": "dani@gmail.com",
-            "nacimiento": "02/10/90",
-            "fecha_afiliacion": "09/09/24",
+            "nacimiento": "02/10/1990",
+            "fecha_afiliacion": "09/09/2022",
             "servicios": "4",
             "eliminado": false
         }
