@@ -1,4 +1,9 @@
-from datos_usuarios import *
+import sys
+
+sys.path.append("..")
+
+
+from datosGenerales.datos import *
 from consultas import fecha_afiliacion
 
 RUTA_JSON = "usuarios.json"
@@ -9,11 +14,16 @@ def nuevos_usuarios():
     print("")
 
     fecha = fecha_afiliacion(documento)
-
-    if((año_actual - int(fecha[6:10])) <= 2):
-        return f"El cliente es nuevo, se afilio el {fecha}"
+    if(fecha):
+        if((año_actual - int(fecha[6:10])) <= 2):
+            return f"El cliente es nuevo, se afilio el {fecha}"
+        else:
+            return "El cliente NO es nuevo"
     else:
-        return "El cliente NO es nuevo"
+        return("El usuario no existe o està eliminado")
+    
+    
+print(nuevos_usuarios())
     
 
 

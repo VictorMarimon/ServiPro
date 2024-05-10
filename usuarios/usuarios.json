@@ -10,6 +10,18 @@
             "nacimiento": "02/10/1990",
             "fecha_afiliacion": "09/09/2022",
             "servicios": "4",
+            "eliminado": true
+        },
+        {
+            "id": 2,
+            "documento": 1,
+            "nombre": "Cristia",
+            "direccion": "carrera 12",
+            "telefono": 21938412,
+            "email": "cris@gmail.com",
+            "nacimiento": "02/02/1993",
+            "fecha_afiliacion": "01/03/2020",
+            "servicios": "4",
             "eliminado": false
         }
     ]

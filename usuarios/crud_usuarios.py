@@ -1,8 +1,12 @@
-from datos_generales import *
+import sys
+
+sys.path.append("..")
+
+from datosGenerales.datos import *
 
 #ARREGLAR IMPORTS
 
-RUTA_JSON = "usuarios/usuarios.json"
+RUTA_JSON = "usuarios.json"
 
 def crear_usuarios():
     datos = cargar_datos(RUTA_JSON)
@@ -53,17 +57,17 @@ def crear_usuarios():
 
     try:
         print("Ingrese la fecha de nacimiento")
-        nuevos_usu["nacimiento"] = input("(ej. 01/10/97) ")
+        nuevos_usu["nacimiento"] = input("(ej. 01/10/1997) ")
     except Exception:
-        fecha_nacimiento_base = "00/00/00"
+        fecha_nacimiento_base = "01/01/2001"
         print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
         nuevos_usu["nacimiento"] =  fecha_nacimiento_base
 
     try:
         print("Ingrese la fecha de afiliaciòn")
-        nuevos_usu["fecha_afiliacion"] = input("(ej. 01/10/97) ")
+        nuevos_usu["fecha_afiliacion"] = input("(ej. 01/10/1997) ")
     except Exception:
-        fecha_afiliacion_base = "00/00/00"
+        fecha_afiliacion_base = "01/01/2024"
         print("Fecha de afiliacion incorrecta (se le asignara una fecha generica)")
         nuevos_usu["fecha_afiliacion"] =  fecha_afiliacion_base
 
@@ -155,13 +159,14 @@ def leer_usuarios():
     datos_json = cargar_datos(RUTA_JSON)
     contador_usuario = 0
     for i in datos_json["usuarios"]:
-        contador_usuario += 1
-        print("")
-        print(f"Usuario No. {contador_usuario}")
-        print("")
-        for llave, valor in i.items():
-            if(llave != "id" and llave != "eliminado"):
-                print(llave.capitalize(), "=", valor)
+        if(i["eliminado"] == False):
+            contador_usuario += 1
+            print("")
+            print(f"Usuario No. {contador_usuario}")
+            print("")
+            for llave, valor in i.items():
+                if(llave != "id" and llave != "eliminado"):
+                    print(llave.capitalize(), "=", valor)
 
 def eliminar_usuario():
     datos = cargar_datos(RUTA_JSON)
@@ -191,4 +196,4 @@ def eliminar_usuario():
     if(contador == 0):
         print("El usuario no existe")
 
-leer_usuarios()
+crear_usuarios()
