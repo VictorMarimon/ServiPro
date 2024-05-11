@@ -1,3 +1,3 @@
 from ventas.crud_ventas import * 
 
-crear_ventas()
+crear_ventas("servicios")
