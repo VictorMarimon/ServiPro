@@ -85,7 +85,6 @@ def crear_ventas(categoria):
                     print(f"El producto {referencia} no existe")
             else:
                 print(f"El tipo de producto {tipo_producto} NO existe")
-
         elif(categoria == "servicios"):
             nuevas_ventas["categoria"] = "servicios"
 
@@ -135,14 +134,14 @@ def crear_ventas(categoria):
     else:
         print("El usuario no existe")
 
-def actualizar_ventas():
+def actualizar_ventas(categoria):
     datos = cargar_datos(RUTA_JSON)
 
     contador = int(len(datos["ventas"]))
     referencia = input("Ingrese la referencia: ")
     print("")
     for i in datos["ventas"]:
-        if(i["referencia"] == referencia):
+        if(i["referencia"] == referencia and i["eliminado"] == False):
 
             documento = int(input("Ingrese el documento del cliente: "))
 
@@ -155,36 +154,91 @@ def actualizar_ventas():
                     print("Documento mal escrito (se le asignara un documento base)")
                     i["documento_usuario"] = documento_base
                 
-                referencia = input("Ingrese la referencia del producto: ")
+                if(categoria == "productos"):
 
-                if(referencia in referencia_productos()):
-                    try:
-                        i["referencia_producto"]= referencia
-                    except Exception:
-                        referencia_base = "xxxxxxx"
-                        print("Referencia con mala ortografia (se asignara una referencia generica)")
-                        i["referencia_producto"]= referencia_base
+                    i["categoria"] = "productos"
 
-                    try:
-                        i["cantidad"] = int(input("Ingrese la cantidad: "))
-                    except Exception:
-                        cantidad_base = 0
-                        print("Cantidad mal escrita (se le asignara una cantidad base)")
-                        i["cantidad"] = cantidad_base
+                    tipo_producto = input("Ingrese el tipo de producto: ")
 
-                    try:
-                        print("Ingrese la fecha de compra")
-                        i["fecha_compra"] = input("(ej. 01/10/1997) ")
-                    except Exception:
-                        fecha_compra_base = "01/01/2024"
-                        print("Fecha de compra incorrecta (se le asignara una fecha generica)")
-                        i["fecha_compra"] =  fecha_compra_base
-                    
-                    guardar_datos(datos, RUTA_JSON)
-                    print("")
-                    print("Venta Actualizada")
+                    if(tipo_producto.lower() in tipo_productos()):
+
+                        i["tipo"] = tipo_producto
+
+                        referencia = input("Ingrese la referencia del producto: ")
+
+                        if(referencia in referencia_productos(tipo_producto)):
+                            try:
+                                i["referencia_articulo"] = referencia
+                            except Exception:
+                                referencia_base = "xxxxxxx"
+                                print("Referencia con mala ortografia (se asignara una referencia generica)")
+                                i["referencia_articulo"]= referencia_base
+
+                            try:
+                                i["cantidad"] = int(input("Ingrese la cantidad: "))
+                            except Exception:
+                                cantidad_base = 0
+                                print("Cantidad mal escrita (se le asignara una cantidad base)")
+                                i["cantidad"] = cantidad_base
+
+                            try:
+                                print("Ingrese la fecha de compra")
+                                i["fecha_compra"] = input("(ej. 01/10/1997) ")
+                            except Exception:
+                                fecha_compra_base = "01/01/2024"
+                                print("Fecha de compra incorrecta (se le asignara una fecha generica)")
+                                i["fecha_compra"] =  fecha_compra_base
+                            
+                            guardar_datos(datos, RUTA_JSON)
+                            print("")
+                            print("Venta Registrada")
+                        else:
+                            print(f"El producto {referencia} no existe")
+                    else:
+                        print(f"El tipo de producto {tipo_producto} NO existe")
+                elif(categoria == "servicios"):
+                    i["categoria"] = "servicios"
+
+                    tipo_servicio = input("Ingrese el tipo de servicio: ")
+
+                    if(tipo_servicio.lower() in tipo_servicios()):
+
+                        i["tipo"] = tipo_servicio
+
+                        referencia = input("Ingrese la referencia del servicio: ")
+
+                        if(referencia in referencia_servicios(tipo_servicio)):
+                            try:
+                                i["referencia_articulo"] = referencia
+                            except Exception:
+                                referencia_base = "xxxxxxx"
+                                print("Referencia con mala ortografia (se asignara una referencia generica)")
+                                i["referencia_articulo"]= referencia_base
+
+                            try:
+                                i["cantidad"] = int(input("Ingrese la cantidad: "))
+                            except Exception:
+                                cantidad_base = 0
+                                print("Cantidad mal escrita (se le asignara una cantidad base)")
+                                i["cantidad"] = cantidad_base
+
+                            try:
+                                print("Ingrese la fecha de compra")
+                                i["fecha_compra"] = input("(ej. 01/10/1997) ")
+                            except Exception:
+                                fecha_compra_base = "01/01/2024"
+                                print("Fecha de compra incorrecta (se le asignara una fecha generica)")
+                                i["fecha_compra"] =  fecha_compra_base
+                            
+                            guardar_datos(datos, RUTA_JSON)
+                            print("")
+                            print("Venta Registrada")
+                        else:
+                            print(f"El servicio {referencia} no existe")
+                    else:
+                        print(f"El tipo de servicio {tipo_servicio} NO existe")
                 else:
-                    print("El producto no existe")
+                    print(f"La categoria {categoria} NO existe")
             else:
                 print("El usuario no existe")
         else:
@@ -205,6 +259,9 @@ def leer_ventas():
                 if(llave != "id" and llave != "eliminado"):
                     print(llave.capitalize(), "=", valor)
 
+    if(contador_ventas == 0):
+        print("No se han realizado ventas")
+    
 def eliminar_ventas():
     datos = cargar_datos(RUTA_JSON)
 

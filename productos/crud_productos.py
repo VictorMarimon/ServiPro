@@ -60,7 +60,7 @@ def actualizar_productos():
     referencia = input("Ingrese la referencia: ")
     print("")
     for i in datos["productos"][0]["telefonos"]:
-        if(i["referencia"] == referencia):
+        if(i["referencia"] == referencia and i["eliminado"] == False):
 
             try:
                 i["referencia"]= input("Ingrese la referencia: ")
@@ -109,6 +109,9 @@ def leer_productos():
             for llave, valor in i.items():
                 if(llave != "id" and llave != "eliminado"):
                     print(llave.capitalize(), "=", valor)
+
+    if(contador_servicios == 0):
+        print("No se han registrado productos")
 
 def eliminar_productos():
     datos = cargar_datos(RUTA_JSON)

@@ -4,8 +4,6 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-#ARREGLAR IMPORTS
-
 RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/usuarios/usuarios.json"
 
 def crear_usuarios():
@@ -93,7 +91,7 @@ def actualizar_usuarios():
     documento = int(input("Ingrese el nùmero de documento: "))
     print("")
     for i in datos["usuarios"]:
-        if(i["documento"] == documento):
+        if(i["documento"] == documento and i["eliminado"] == False):
             try:
                 i["nombre"]= input("Ingrese el nombre: ")
             except Exception:
@@ -167,6 +165,9 @@ def leer_usuarios():
             for llave, valor in i.items():
                 if(llave != "id" and llave != "eliminado"):
                     print(llave.capitalize(), "=", valor)
+    
+    if(contador_usuario == 0):
+        print("No se han registrado usuarios")
 
 def eliminar_usuario():
     datos = cargar_datos(RUTA_JSON)
