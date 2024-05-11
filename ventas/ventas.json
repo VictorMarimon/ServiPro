@@ -1,32 +1,5 @@
 {
     "ventas": [
-        {
-            "id": 1,
-            "referencia": "AD1",
-            "documento_usuario": 1,
-            "tipo_producto": "telefonos",
-            "referencia_producto": "as",
-            "cantidad": 1,
-            "fecha_compra": "02/10/2023",
-            "eliminado": false
-        },
-        {
-            "id": 2,
-            "referencia": "A1",
-            "documento_usuario": 100,
-            "referencia_producto": "X12",
-            "cantidad": 2,
-            "fecha_compra": "02/03/2024",
-            "eliminado": false
-        },
-        {
-            "id": 4,
-            "referencia": "AXL",
-            "documento_usuario": 100,
-            "referencia_producto": "X12",
-            "cantidad": 3,
-            "fecha_compra": "02/03/2024",
-            "eliminado": false
-        }
+        
     ]
 }
