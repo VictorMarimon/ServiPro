@@ -4,7 +4,7 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "usuarios.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/usuarios/usuarios.json"
 
 def fecha_afiliacion(documento):
     datos_json = cargar_datos(RUTA_JSON)
@@ -17,4 +17,15 @@ def fecha_afiliacion(documento):
     
     if(contador == 0):
         return(False)
+    
+def documentos_usuarios():
+    datos = cargar_datos(RUTA_JSON)
+
+    referencias = []
+
+    for i in datos["usuarios"]:
+        referencias.append(int(i["documento"]))
+    
+    return referencias
+
     
