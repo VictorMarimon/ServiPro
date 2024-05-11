@@ -4,7 +4,7 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "servicios.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/servicios/servicios.json"
 
 def crear_servicios():
     datos = cargar_datos(RUTA_JSON)
@@ -138,5 +138,3 @@ def eliminar_servicios():
             contador -= 1
     if(contador == 0):
         print("El servicio no existe")
-
-eliminar_servicios()

@@ -4,7 +4,7 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "productos.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/productos/productos.json"
 
 def crear_productos():
     datos = cargar_datos(RUTA_JSON)
@@ -137,4 +137,3 @@ def eliminar_productos():
     if(contador == 0):
         print("El producto no existe")
 
-leer_productos()

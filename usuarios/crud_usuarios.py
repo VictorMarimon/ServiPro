@@ -6,7 +6,7 @@ from datosGenerales.datos import *
 
 #ARREGLAR IMPORTS
 
-RUTA_JSON = "usuarios.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/usuarios/usuarios.json"
 
 def crear_usuarios():
     datos = cargar_datos(RUTA_JSON)
@@ -195,5 +195,3 @@ def eliminar_usuario():
             contador -= 1
     if(contador == 0):
         print("El usuario no existe")
-
-crear_usuarios()

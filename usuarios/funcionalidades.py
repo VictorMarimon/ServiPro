@@ -4,7 +4,7 @@ sys.path.append("..")
 
 
 from datosGenerales.datos import *
-from consultas import fecha_afiliacion
+from usuarios.consultas_usuarios import fecha_afiliacion
 
 RUTA_JSON = "usuarios.json"
 
@@ -22,8 +22,6 @@ def nuevos_usuarios():
     else:
         return("El usuario no existe o està eliminado")
     
-    
-print(nuevos_usuarios())
     
 
 
