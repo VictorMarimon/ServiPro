@@ -17,6 +17,14 @@
                     "precio": 5000000,
                     "fecha_creacion": "02/02/2024",
                     "eliminado": true
+                },
+                {
+                    "id": 4,
+                    "referencia": "asd",
+                    "nombre": "asd",
+                    "precio": 0,
+                    "fecha_creacion": "asd",
+                    "eliminado": false
                 }
             ],
             "computadores": [],

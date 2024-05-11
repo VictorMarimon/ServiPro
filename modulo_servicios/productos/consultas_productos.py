@@ -4,7 +4,7 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/productos/productos.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/productos/productos.json"
 
 def referencia_productos(categoria):
     datos = cargar_datos(RUTA_JSON)

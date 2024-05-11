@@ -4,64 +4,62 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/servicios/servicios.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/productos/productos.json"
 
-def crear_servicios():
+def crear_productos():
     datos = cargar_datos(RUTA_JSON)
-    nuevos_servicio = {}
+    nuevos_productos = {}
     print(" ")
-    print(" AGREGAR SERVICIOS ")
+    print(" AGREGAR PRODUCTOS ")
     print(" ")
 
-    cantidad_servicios = int(len(datos["servicios"][0]["internet"]))
+    cantidad_productos = int(len(datos["productos"][0]["telefonos"]))
     estado = False
 
-    
+    for i in range(0, cantidad_productos):
+        cantidad_productos += 1
 
-    for i in range(0, cantidad_servicios):
-        cantidad_servicios += 1
+    nuevos_productos["id"] = int(cantidad_productos)
 
-    nuevos_servicio["id"] = int(cantidad_servicios)
-
-    nuevos_servicio["referencia"] = input("Ingrese la referencia: ")
+    nuevos_productos["referencia"] = input("Ingrese la referencia: ")
     
     try:
-        nuevos_servicio["nombre"]= input("Ingrese el nombre: ")
+        nuevos_productos["nombre"]= input("Ingrese el nombre: ")
     except Exception:
         nombre_base = "xxxxxxx"
         print("Nombre con mala ortografia (se asignara un nombre generico)")
-        nuevos_servicio["nombre"]= nombre_base
+        nuevos_productos["nombre"]= nombre_base
 
     try:
-        nuevos_servicio["precio"] = int(input("Ingrese el precio: "))
+        nuevos_productos["precio"] = int(input("Ingrese el precio: "))
     except Exception:
         precio_base = 0
         print("Precio mal escrito (se le asignara un precio base)")
-        nuevos_servicio["precio"] = precio_base
+        nuevos_productos["precio"] = precio_base
 
     try:
         print("Ingrese la fecha de creaciòn")
-        nuevos_servicio["fecha_creacion"] = input("(ej. 01/10/1997) ")
+        nuevos_productos["fecha_creacion"] = input("(ej. 01/10/1997) ")
     except Exception:
         fecha_creacion_base = "01/01/2024"
         print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
-        nuevos_servicio["fecha_creacion"] =  fecha_creacion_base
+        nuevos_productos["fecha_creacion"] =  fecha_creacion_base
     
-    nuevos_servicio["eliminado"] = estado
+    nuevos_productos["eliminado"] = estado
 
     
-    datos["servicios"][0]["internet"].append(nuevos_servicio)
+    datos["productos"][0]["telefonos"].append(nuevos_productos)
     guardar_datos(datos, RUTA_JSON)
     print("")
-    print("Servicio Registrado")
+    print("Producto Registrado")
 
-def actualizar_servicios():
+def actualizar_productos():
     datos = cargar_datos(RUTA_JSON)
 
-    contador = int(len(datos["servicios"][0]["telefonia"]))
+    contador = int(len(datos["productos"][0]["telefonos"]))
     referencia = input("Ingrese la referencia: ")
     print("")
-    for i in datos["servicios"][0]["telefonia"]:
+    for i in datos["productos"][0]["telefonos"]:
         if(i["referencia"] == referencia and i["eliminado"] == False):
 
             try:
@@ -92,45 +90,46 @@ def actualizar_servicios():
                 fecha_creacion_base = "01/01/2024"
                 print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
                 i["fecha_creacion"] =  fecha_creacion_base
-            print("Servicio Actualizado")
+            print("Producto Actualizado")
             return guardar_datos(datos, RUTA_JSON)
         else:
             contador -= 1
     if(contador == 0):
-        print("El servicio no existe")
+        print("El producto no existe")
 
-def leer_servicios():
+def leer_productos():
     datos_json = cargar_datos(RUTA_JSON)
     contador_servicios = 0
-    for i in datos_json["servicios"][0]["telefonia"]:
+    for i in datos_json["productos"][0]["telefonos"]:
         if(i["eliminado"] == False):
             contador_servicios += 1
             print("")
-            print(f"Servicio No. {contador_servicios}")
+            print(f"Producto No. {contador_servicios}")
             print("")
             for llave, valor in i.items():
                 if(llave != "id" and llave != "eliminado"):
                     print(llave.capitalize(), "=", valor)
-    if(contador_servicios == 0):
-        print("No se han registrado servicios")
 
-def eliminar_servicios():
+    if(contador_servicios == 0):
+        print("No se han registrado productos")
+
+def eliminar_productos():
     datos = cargar_datos(RUTA_JSON)
 
-    contador = int(len(datos["servicios"][0]["telefonia"]))
+    contador = int(len(datos["productos"][0]["telefonos"]))
     referencia = input("Ingrese la referencia: ")
     print("")
-    for i in datos["servicios"][0]["telefonia"]:
+    for i in datos["productos"][0]["telefonos"]:
         if(i["referencia"] == referencia):
             estado = input("Ingrese 1 para eliminar y 2 de lo contrario: ")
             print("")
             if(estado == "1"):
                 i["eliminado"] = True
-                print("Servicio Eliminado")
+                print("Producto Eliminado")
                 print("")
             elif(estado == "2"):
                 i["eliminado"] = False
-                print("Servicio No Eliminado")
+                print("Producto No Eliminado")
                 print("")
             else:
                 print("Seleccione un estado correcto (ej. 1)")
@@ -139,4 +138,5 @@ def eliminar_servicios():
         else:
             contador -= 1
     if(contador == 0):
-        print("El servicio no existe")
+        print("El producto no existe")
+

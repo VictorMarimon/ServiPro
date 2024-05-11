@@ -3,9 +3,9 @@ import sys
 sys.path.append("..")
 
 from datosGenerales.datos import *
-from usuarios.consultas_usuarios import documentos_usuarios
-from servicios.consultas_servicios import *
-from productos.consultas_productos import *
+from modulo_administrativo.usuarios.consultas_usuarios import documentos_usuarios
+from modulo_servicios.servicios.consultas_servicios import *
+from modulo_servicios.productos.consultas_productos import *
 
 RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/ventas/ventas.json"
 
