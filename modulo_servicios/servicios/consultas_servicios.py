@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("..")
+sys.path.append("../..")
 
 from datosGenerales.datos import *
 
@@ -60,3 +60,76 @@ def total_servicios():
     print(f"Televisión: {contador_television}") if contador_television > 0 else contador_television
     print(f"Datos: {contador_datos}") if contador_datos > 0 else contador_datos
     print(f"Minutos: {contador_minutos}") if contador_minutos > 0 else contador_minutos                
+
+def servicios_catalogo():
+    datos_json = cargar_datos(RUTA_JSON)
+    servicios_enviados = []
+    contador_servicios = 0
+    for llave, valor in datos_json["servicios"][0].items():
+        if(llave == "telefonia"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_servicios += 1
+                    productos["articulo"] = "telefonia"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    servicios_enviados.append(productos)
+                id += 2
+        elif(llave == "internet"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_servicios += 1
+                    productos["articulo"] = "internet"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    servicios_enviados.append(productos)
+                id += 2
+        elif(llave == "television"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_servicios += 1
+                    productos["articulo"] = "television"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    servicios_enviados.append(productos)
+                id += 2
+        elif(llave == "datos"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_servicios += 1
+                    productos["articulo"] = "datos"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    servicios_enviados.append(productos)
+                id += 2
+        elif(llave == "minutos"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_servicios += 1
+                    productos["articulo"] = "minutos"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    servicios_enviados.append(productos)
+                id += 2
+    if(contador_servicios == 0):
+        return("No se han registrado servicios")
+    return(servicios_enviados)
+
+#print(servicios_catalogo())
+
+#servicios_catalogo()
