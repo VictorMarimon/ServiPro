@@ -1,4 +1,5 @@
 from modulo_ventas.crud_ventas import * 
+from modulo_ventas.servicios_productos import * 
 from modulo_servicios.servicios.consultas_servicios import *
 from modulo_servicios.productos.consultas_productos import *
 from modulo_servicios.productos.crud_productos import *
@@ -8,3 +9,5 @@ from modulo_servicios.productos.crud_productos import *
 #actualizar_ventas("productos")
 #crear_productos()
 #eliminar_ventas()
+#actualizar_registro()
+leer_registos()
