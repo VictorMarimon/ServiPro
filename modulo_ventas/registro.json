@@ -1,0 +1,96 @@
+{
+    "servicios": [
+        {
+            "articulo": "telefonia",
+            "referencia": "14NB",
+            "nombre": "minutos limitados",
+            "precio": 5000
+        },
+        {
+            "articulo": "telefonia",
+            "referencia": "14NB3",
+            "nombre": "minutos limitados",
+            "precio": 5000
+        },
+        {
+            "articulo": "internet",
+            "referencia": "4123N2S",
+            "nombre": "wifi ilimitado",
+            "precio": 150000
+        },
+        {
+            "articulo": "internet",
+            "referencia": "4123N1S",
+            "nombre": "wifi ilimitado",
+            "precio": 150000
+        },
+        {
+            "articulo": "television",
+            "referencia": "4123NS1",
+            "nombre": "wifi ilimitado",
+            "precio": 150000
+        },
+        {
+            "articulo": "datos",
+            "referencia": "4123NS2",
+            "nombre": "wifi ilimitado",
+            "precio": 150000
+        },
+        {
+            "articulo": "minutos",
+            "referencia": "4123NS3",
+            "nombre": "wifi ilimitado",
+            "precio": 150000
+        }
+    ],
+    "productos": [
+        {
+            "articulo": "telefonos",
+            "referencia": "X12",
+            "nombre": "Iphone 12",
+            "precio": 50
+        },
+        {
+            "articulo": "telefonos",
+            "referencia": "asd",
+            "nombre": "asd",
+            "precio": 0
+        },
+        {
+            "articulo": "telefonos",
+            "referencia": "Prueba",
+            "nombre": "Prueba1",
+            "precio": 50000
+        },
+        {
+            "articulo": "telefonos",
+            "referencia": "prueba2",
+            "nombre": "prueba2",
+            "precio": 100000
+        },
+        {
+            "articulo": "telefonos",
+            "referencia": "prueba3",
+            "nombre": "prueba3",
+            "precio": 10
+        },
+        {
+            "articulo": "telefonos",
+            "referencia": "prueba4",
+            "nombre": "prueba4",
+            "precio": 40
+        },
+        {
+            "articulo": "tablets",
+            "referencia": "X121",
+            "nombre": "Iphone 12",
+            "precio": 50
+        },
+        {
+            "articulo": "tablets",
+            "referencia": "asd1",
+            "nombre": "asd",
+            "precio": 0
+        }
+    ]
+}
