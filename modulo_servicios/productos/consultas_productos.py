@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("..")
+sys.path.append("../..")
 
 from datosGenerales.datos import *
 
@@ -60,3 +60,74 @@ def total_productos():
     print(f"Tablets: {contador_tablets}") if contador_tablets > 0 else contador_tablets
     print(f"Electrodomesticos: {contador_electrodomesticos}") if contador_electrodomesticos > 0 else contador_electrodomesticos                
 
+def productos_catalogo():
+    datos_json = cargar_datos(RUTA_JSON)
+    productos_enviados = []
+    contador_productos = 0
+    for llave, valor in datos_json["productos"][0].items():
+        if(llave == "telefonos"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_productos += 1
+                    productos["articulo"] = "telefonos"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    productos_enviados.append(productos)
+                id += 2
+        elif(llave == "computadores"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_productos += 1
+                    productos["articulo"] = "computadores"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    productos_enviados.append(productos)
+                id += 2
+        elif(llave == "accesorios"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_productos += 1
+                    productos["articulo"] = "accesorios"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    productos_enviados.append(productos)
+                id += 2
+        elif(llave == "tablets"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_productos += 1
+                    productos["articulo"] = "tablets"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    productos_enviados.append(productos)
+                id += 2
+        elif(llave == "electrodomesticos"):
+            id=0
+            for i in valor:
+                if(i["eliminado"] == False and i["id"] == id):
+                    productos = {}
+                    contador_productos += 1
+                    productos["articulo"] = "electrodomesticos"
+                    productos["referencia"] = i["referencia"]
+                    productos["nombre"] = i["nombre"]
+                    productos["precio"] = i["precio"]
+                    productos_enviados.append(productos)
+                id += 2
+    if(contador_productos == 0):
+        return("No se han registrado productos")
+    return(productos_enviados)
+
+#print(productos_catalogo())
+#productos_catalogo()
