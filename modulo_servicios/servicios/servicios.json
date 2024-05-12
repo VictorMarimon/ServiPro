@@ -9,21 +9,58 @@
                     "precio": 5000,
                     "fecha_creacion": "10/05/2024",
                     "eliminado": false
+                },
+                {
+                    "id": 2,
+                    "referencia": "14NB3",
+                    "nombre": "minutos limitados",
+                    "precio": 5000,
+                    "fecha_creacion": "10/05/2024",
+                    "eliminado": false
                 }
             ],
             "internet": [
                 {
                     "id": 0,
-                    "referencia": "4123NS",
+                    "referencia": "4123N2S",
+                    "nombre": "wifi ilimitado",
+                    "precio": 150000,
+                    "fecha_creacion": "10/04/2024",
+                    "eliminado": false
+                },
+                {
+                    "id": 2,
+                    "referencia": "4123N1S",
                     "nombre": "wifi ilimitado",
                     "precio": 150000,
                     "fecha_creacion": "10/04/2024",
                     "eliminado": false
                 }
             ],
-            "television": [],
-            "datos": [],
-            "minutos": []
+            "television": [{
+                "id": 0,
+                "referencia": "4123NS1",
+                "nombre": "wifi ilimitado",
+                "precio": 150000,
+                "fecha_creacion": "10/04/2024",
+                "eliminado": false
+            }],
+            "datos": [{
+                "id": 0,
+                "referencia": "4123NS2",
+                "nombre": "wifi ilimitado",
+                "precio": 150000,
+                "fecha_creacion": "10/04/2024",
+                "eliminado": false
+            }],
+            "minutos": [{
+                "id": 0,
+                "referencia": "4123NS3",
+                "nombre": "wifi ilimitado",
+                "precio": 150000,
+                "fecha_creacion": "10/04/2024",
+                "eliminado": false
+            }]
         }
     ]
 }

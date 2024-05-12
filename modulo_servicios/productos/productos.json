@@ -25,11 +25,68 @@
                     "precio": 0,
                     "fecha_creacion": "asd",
                     "eliminado": false
+                },
+                {
+                    "id": 6,
+                    "referencia": "Prueba",
+                    "nombre": "Prueba1",
+                    "precio": 50000,
+                    "fecha_creacion": "03/04/2023",
+                    "eliminado": false
+                },
+                {
+                    "id": 8,
+                    "referencia": "prueba2",
+                    "nombre": "prueba2",
+                    "precio": 100000,
+                    "fecha_creacion": "",
+                    "eliminado": false
+                },
+                {
+                    "id": 10,
+                    "referencia": "prueba3",
+                    "nombre": "prueba3",
+                    "precio": 10,
+                    "fecha_creacion": "",
+                    "eliminado": false
+                },
+                {
+                    "id": 12,
+                    "referencia": "prueba4",
+                    "nombre": "prueba4",
+                    "precio": 40,
+                    "fecha_creacion": "",
+                    "eliminado": false
                 }
             ],
             "computadores": [],
             "accesorios": [],
-            "tablets": [],
+            "tablets": [
+                {
+                    "id": 0,
+                    "referencia": "X121",
+                    "nombre": "Iphone 12",
+                    "precio": 50,
+                    "fecha_creacion": "02/02/2024",
+                    "eliminado": false
+                },
+                {
+                    "id": 2,
+                    "referencia": "X131",
+                    "nombre": "Iphone 13",
+                    "precio": 5000000,
+                    "fecha_creacion": "02/02/2024",
+                    "eliminado": true
+                },
+                {
+                    "id": 4,
+                    "referencia": "asd1",
+                    "nombre": "asd",
+                    "precio": 0,
+                    "fecha_creacion": "asd",
+                    "eliminado": false
+                }
+            ],
             "electrodomesticos": []
         }
     ]
