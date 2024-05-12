@@ -4,7 +4,7 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/usuarios/usuarios.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_administrativo/usuarios/usuarios.json"
 
 def crear_usuarios():
     datos = cargar_datos(RUTA_JSON)
