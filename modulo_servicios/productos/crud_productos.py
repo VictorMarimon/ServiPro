@@ -99,18 +99,18 @@ def actualizar_productos():
 
 def leer_productos():
     datos_json = cargar_datos(RUTA_JSON)
-    contador_servicios = 0
+    contador_productos = 0
     for i in datos_json["productos"][0]["telefonos"]:
         if(i["eliminado"] == False):
-            contador_servicios += 1
+            contador_productos += 1
             print("")
-            print(f"Producto No. {contador_servicios}")
+            print(f"Producto No. {contador_productos}")
             print("")
             for llave, valor in i.items():
                 if(llave != "id" and llave != "eliminado"):
                     print(llave.capitalize(), "=", valor)
 
-    if(contador_servicios == 0):
+    if(contador_productos == 0):
         print("No se han registrado productos")
 
 def eliminar_productos():
