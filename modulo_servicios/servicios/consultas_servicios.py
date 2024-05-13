@@ -129,7 +129,3 @@ def servicios_catalogo():
     if(contador_servicios == 0):
         return("No se han registrado servicios")
     return(servicios_enviados)
-
-#print(servicios_catalogo())
-
-#servicios_catalogo()
