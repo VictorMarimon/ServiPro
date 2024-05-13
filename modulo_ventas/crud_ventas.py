@@ -13,8 +13,6 @@ def crear_ventas(categoria):
     datos = cargar_datos(RUTA_JSON)
     nuevas_ventas = {}
 
-    producto = "productos"
-
     print(" ")
     print(" AGREGAR VENTAS ")
     print(" ")
