@@ -28,4 +28,15 @@ def documentos_usuarios():
     
     return referencias
 
+def nombres_documentos_usuarios():
+    datos = cargar_datos(RUTA_JSON)
+
+    datos_usuarios = []
+
+    for i in datos["usuarios"]:
+        info ={}
+        info["documento"] = int(i["documento"])
+        info["nombre"] = i["nombre"]
+        datos_usuarios.append(info)
     
+    return datos_usuarios   
