@@ -6,19 +6,63 @@
             "documento_usuario": 100,
             "categoria": "productos",
             "tipo": "telefonos",
-            "referencia_articulo": "X12",
-            "cantidad": 1,
+            "referencia_articulo": "X122",
+            "cantidad": 3,
             "fecha_compra": "03/03/2024",
             "eliminado": false
         },
         {
             "id": 2,
+            "referencia": "SR1",
+            "documento_usuario": 100,
+            "categoria": "productos",
+            "tipo": "telefonos",
+            "referencia_articulo": "X12",
+            "cantidad": 3,
+            "fecha_compra": "03/03/2024",
+            "eliminado": false
+        },
+        {
+            "id": 4,
             "referencia": "SR2",
             "documento_usuario": 100,
             "categoria": "servicios",
             "tipo": "telefonia",
             "referencia_articulo": "14NB",
             "cantidad": 1,
+            "fecha_compra": "01/01/2024",
+            "eliminado": false
+        },
+        {
+            "id": 6,
+            "referencia": "SR23",
+            "documento_usuario": 100,
+            "categoria": "servicios",
+            "tipo": "telefonia",
+            "referencia_articulo": "14NB",
+            "cantidad": 4,
+            "fecha_compra": "01/01/2024",
+            "eliminado": false
+        },
+        {
+            "id": 8,
+            "referencia": "SR2",
+            "documento_usuario": 1,
+            "categoria": "servicios",
+            "tipo": "telefonia",
+            "referencia_articulo": "14NB",
+            "cantidad": 1,
+            "fecha_compra": "01/01/2024",
+            "eliminado": false
+        },
+        {
+            "id": 10,
+            "referencia": "SR23",
+            "documento_usuario": 1,
+            "categoria": "servicios",
+            "tipo": "telefonia",
+            "referencia_articulo": "14NB",
+            "cantidad": 2,
             "fecha_compra": "01/01/2024",
             "eliminado": false
         }
