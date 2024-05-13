@@ -52,5 +52,21 @@ def catalogo_ventas():
 
             if not encontrado:
                 catalogo.append(servicios_catalogo)
-    print(catalogo)
+
+    contador_catalogo = 0
+
+    if(len(catalogo) == 0):
+        print("No hay catalogo")
+    else:
+        print("")
+        print("CATALOGO VENTAS")
+        print("")
+        for k in catalogo:
+            contador_catalogo += 1
+            print("")
+            print("Venta No. " , contador_catalogo)
+            print(f"Categoria: {k["categoria"]}")
+            print(f"Tipo: {k["tipo"]}")
+            print(f"Referencia: {k["referencia"]}")
+            print(f"Cantidad: {k["cantidad"]}")
     return catalogo
