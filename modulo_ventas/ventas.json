@@ -39,7 +39,7 @@
             "documento_usuario": 100,
             "categoria": "servicios",
             "tipo": "telefonia",
-            "referencia_articulo": "14NB",
+            "referencia_articulo": "14NB3",
             "cantidad": 4,
             "fecha_compra": "01/01/2024",
             "eliminado": false
@@ -61,7 +61,7 @@
             "documento_usuario": 1,
             "categoria": "servicios",
             "tipo": "telefonia",
-            "referencia_articulo": "14NB",
+            "referencia_articulo": "14NB3",
             "cantidad": 2,
             "fecha_compra": "01/01/2024",
             "eliminado": false
