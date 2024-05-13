@@ -3,25 +3,48 @@
         {
             "id": 0,
             "documento": 100,
-            "nombre": "Daniel",
-            "direccion": "carrera 12",
-            "telefono": 213241231,
-            "email": "dani@gmail.com",
-            "nacimiento": "02/10/1990",
-            "fecha_afiliacion": "09/09/2022",
-            "servicios": "4",
-            "eliminado": true
+            "nombre": "perez",
+            "direccion": "",
+            "telefono": 0,
+            "email": "",
+            "nacimiento": "01/10/1997",
+            "fecha_afiliacion": "01/10/1997",
+            "servicios": 5,
+            "eliminado": false
         },
         {
             "id": 2,
             "documento": 1,
-            "nombre": "Cristia",
-            "direccion": "carrera 12",
-            "telefono": 21938412,
-            "email": "cris@gmail.com",
-            "nacimiento": "02/02/1993",
-            "fecha_afiliacion": "01/03/2020",
-            "servicios": "4",
+            "nombre": "Felipe",
+            "direccion": "carrera 14",
+            "telefono": 2137412,
+            "email": "333",
+            "nacimiento": "01/10/1997",
+            "fecha_afiliacion": "01/10/2023",
+            "servicios": 5,
+            "eliminado": false
+        },
+        {
+            "id": 4,
+            "documento": 10,
+            "nombre": "Felipe B",
+            "direccion": "carrera 14",
+            "telefono": 2137412,
+            "email": "333",
+            "nacimiento": "01/10/1997",
+            "fecha_afiliacion": "01/10/1997",
+            "servicios": 5,
+            "eliminado": false
+        },{
+            "id": 5,
+            "documento": 110,
+            "nombre": "Felipe A",
+            "direccion": "carrera 14",
+            "telefono": 2137412,
+            "email": "333",
+            "nacimiento": "01/10/1997",
+            "fecha_afiliacion": "01/10/2023",
+            "servicios": 3,
             "eliminado": false
         }
     ]
