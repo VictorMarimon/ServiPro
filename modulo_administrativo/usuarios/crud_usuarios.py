@@ -3,6 +3,7 @@ import sys
 sys.path.append("..")
 
 from datosGenerales.datos import *
+from modulo_ventas.servicios_productos import compras_usuarios
 
 RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_administrativo/usuarios/usuarios.json"
 
@@ -69,12 +70,7 @@ def crear_usuarios():
         print("Fecha de afiliacion incorrecta (se le asignara una fecha generica)")
         nuevos_usu["fecha_afiliacion"] =  fecha_afiliacion_base
 
-    try:
-        nuevos_usu["servicios"] = input("Ingrese la cantidad de servicios: ")
-    except Exception:
-        servicios_base = 0
-        print("Cantidad de servicios incorrecta (se le asignara un servicio generico)")
-        nuevos_usu["servicios"] =  servicios_base
+    nuevos_usu["servicios"] = 0
     
     nuevos_usu["eliminado"] = estado
 
@@ -138,20 +134,23 @@ def actualizar_usuarios():
                 print("Fecha de afiliacion incorrecta (se le asignara una fecha generica)")
                 i["fecha_afiliacion"] =  fecha_afiliacion_base
 
-            try:
-                i["servicios"] = input("Ingrese la cantidad de servicios: ")
-            except Exception:
+            datos_compras = compras_usuarios()
+            contador_datos_compras = 0
+            for k in datos_compras:
+                if(k["documento_usuario"] == documento):
+                    contador_datos_compras += 1
+                    i["servicios"] = k["cantidad_servicios"]
+            
+            if(contador_datos_compras == 0):
                 servicios_base = 0
-                print("Cantidad de servicios incorrecta (se le asignara un servicio generico)")
                 i["servicios"] =  servicios_base
-                
+            print("")
+            print("Usuario Actualizado")    
             return guardar_datos(datos, RUTA_JSON)
-    else:
-        contador -= 1
+        else:
+            contador -= 1
     if(contador == 0):
         print("El usuario no existe")
-    else:
-        print("Usuario Actualizado")
 
 def leer_usuarios():
     datos_json = cargar_datos(RUTA_JSON)
