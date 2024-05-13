@@ -4,6 +4,7 @@ sys.path.append("..")
 
 from modulo_servicios.productos.consultas_productos import productos_catalogo
 from modulo_servicios.servicios.consultas_servicios import servicios_catalogo
+from modulo_administrativo.usuarios.consultas_usuarios import nombres_documentos_usuarios
 from datosGenerales.datos import *
 
 RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/registro.json"
@@ -64,3 +65,28 @@ def compras_usuarios():
             if not encontrado:
                 compras_totales.append(compras)
     return compras_totales
+
+def ventas():
+    datos_clientes = nombres_documentos_usuarios()
+    datos = cargar_datos(RUTA_JSON_VENTAS)
+    contador_ventas = 0
+    for i in datos_clientes:
+        for j in datos["ventas"]:
+            if(i["documento"]== j["documento_usuario"]):
+                contador_ventas += 1
+                print("")
+                print(f"Venta No. {contador_ventas}") 
+                print("")
+                print("Fecha= ", j["fecha_compra"])
+                print("Tipo= ", j["tipo"])
+                print("Referencia articulo= ", j["referencia_articulo"])
+                print("Cantidad= ", j["cantidad"])
+                print("Cliente= ", i["nombre"])
+                print("Estado= Completada")
+                print("")
+    if(contador_ventas == 0):
+        print("No hay registro de ventas")
+
+        
+
+
