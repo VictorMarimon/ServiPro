@@ -6,8 +6,9 @@ from modulo_servicios.productos.consultas_productos import *
 from modulo_servicios.productos.crud_productos import *
 from modulo_administrativo.usuarios.funcionalidades import *
 from modulo_administrativo.usuarios.crud_usuarios import *
-from modulo_menu.menu_principal import menu_principal
+from modulo_menu.menu import *
 from modulo_administrativo.usuarios.consultas_usuarios import *
+from modulo_reportes.manejo_reportes import *
 
 #total_productos()
 #total_servicios()
@@ -24,5 +25,6 @@ from modulo_administrativo.usuarios.consultas_usuarios import *
 #ventas()
 #print(nombres_documentos_usuarios())
 #ofertas_productos("telefonos")
-#ofertas_servicios("telefonia")
+#ofertas_servicios("telefonia")#
 menu_principal()
+#servicios_populares()
