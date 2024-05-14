@@ -1,22 +1,4 @@
 {
     "catalogo_ventas": [
-        {
-            "categoria": "productos",
-            "tipo": "telefonos",
-            "referencia": "X122",
-            "cantidad": 3
-        },
-        {
-            "categoria": "productos",
-            "tipo": "telefonos",
-            "referencia": "X12",
-            "cantidad": 3
-        },
-        {
-            "categoria": "servicios",
-            "tipo": "telefonia",
-            "referencia": "14NB",
-            "cantidad": 1
-        }
     ]
 }
