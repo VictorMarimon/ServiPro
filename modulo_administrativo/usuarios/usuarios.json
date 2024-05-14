@@ -35,7 +35,8 @@
             "fecha_afiliacion": "01/10/1997",
             "servicios": 5,
             "eliminado": false
-        },{
+        },
+        {
             "id": 5,
             "documento": 110,
             "nombre": "Felipe A",
@@ -45,6 +46,30 @@
             "nacimiento": "01/10/1997",
             "fecha_afiliacion": "01/10/2023",
             "servicios": 3,
+            "eliminado": false
+        },
+        {
+            "id": 8,
+            "documento": 2300,
+            "nombre": "Usuario",
+            "direccion": "Direcci\u00f3n desconocida",
+            "telefono": 0,
+            "email": "none@none.com",
+            "nacimiento": "01/01/2001",
+            "fecha_afiliacion": "01/01/2024",
+            "servicios": 0,
+            "eliminado": false
+        },
+        {
+            "id": 10,
+            "documento": 3,
+            "nombre": "Usuario",
+            "direccion": "Direcci\u00f3n desconocida",
+            "telefono": 0,
+            "email": "none@none.com",
+            "nacimiento": "01/01/2001",
+            "fecha_afiliacion": "01/01/2024",
+            "servicios": 0,
             "eliminado": false
         }
     ]

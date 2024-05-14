@@ -87,7 +87,14 @@
                     "eliminado": false
                 }
             ],
-            "electrodomesticos": []
+            "electrodomesticos": [{
+                "id": 4,
+                "referencia": "asd1",
+                "nombre": "asd",
+                "precio": 0,
+                "fecha_creacion": "asd",
+                "eliminado": false
+            }]
         }
     ]
 }
