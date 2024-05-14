@@ -27,16 +27,17 @@ def crear_ventas(categoria):
 
     nuevas_ventas["referencia"] = input("Ingrese la referencia: ")
 
-    documento = int(input("Ingrese el documento del cliente: "))
+    documento = 0
+    while True:
+        try:
+            documento = int(input("Ingrese el documento: "))
+            break
+        except ValueError:
+            print("Por favor, ingrese un número válido para el documento.")
 
     if(documento in documentos_usuarios()):
 
-        try:
-            nuevas_ventas["documento_usuario"] = documento
-        except ValueError:
-            documento_base = 00000
-            print("Documento mal escrito (se le asignara un documento base)")
-            nuevas_ventas["documento_usuario"] = documento_base
+        nuevas_ventas["documento_usuario"] = documento
         
         if(categoria == "productos"):
 
@@ -51,27 +52,40 @@ def crear_ventas(categoria):
                 referencia = input("Ingrese la referencia del producto: ")
 
                 if(referencia in referencia_productos(tipo_producto)):
-                    try:
-                        nuevas_ventas["referencia_articulo"] = referencia
-                    except Exception:
-                        referencia_base = "xxxxxxx"
-                        print("Referencia con mala ortografia (se asignara una referencia generica)")
-                        nuevas_ventas["referencia_articulo"]= referencia_base
+                    while True:
+                        try:
+                            referencia = input("Por favor ingresa la referencia del artículo: ")
+                            break
+                        except Exception:
+                            print("Por favor, ingrese una referencia válida")
 
-                    try:
-                        nuevas_ventas["cantidad"] = int(input("Ingrese la cantidad: "))
-                    except Exception:
-                        cantidad_base = 0
-                        print("Cantidad mal escrita (se le asignara una cantidad base)")
-                        nuevas_ventas["cantidad"] = cantidad_base
+                    nuevas_ventas["referencia_articulo"] = referencia
 
-                    try:
-                        print("Ingrese la fecha de compra")
-                        nuevas_ventas["fecha_compra"] = input("(ej. 01/10/1997) ")
-                    except Exception:
-                        fecha_compra_base = "01/01/2024"
-                        print("Fecha de compra incorrecta (se le asignara una fecha generica)")
-                        nuevas_ventas["fecha_compra"] =  fecha_compra_base
+                    while True:
+                        try:
+                            cantidad = int(input("Ingrese la cantidad: "))
+                            if(cantidad > 0):
+                                break  
+                        except ValueError:
+                            print("Error: Debe ingresar un número entero.")
+
+                    nuevas_ventas["cantidad"] = cantidad
+
+                    while True:
+                        try:
+                            print("Ingrese la fecha de compra (ej. 01/10/1997): ")
+                            fecha_compra = input()
+                            if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
+                                print("Formato de fecha incorrecto. Se asignará una fecha genérica")
+                                nuevas_ventas["fecha_compra"] = "01/01/2024"
+                            else: 
+                                nuevas_ventas["fecha_compra"] = fecha_compra
+                            break  
+                        except ValueError:
+                            fecha_compra_base = "01/01/2024"
+                            print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
+                            nuevas_ventas["fecha_compra"] = fecha_compra_base
+                            break 
                     
                     nuevas_ventas["eliminado"] = estado
                     
@@ -95,27 +109,40 @@ def crear_ventas(categoria):
                 referencia = input("Ingrese la referencia del servicio: ")
 
                 if(referencia in referencia_servicios(tipo_servicio)):
-                    try:
-                        nuevas_ventas["referencia_articulo"] = referencia
-                    except Exception:
-                        referencia_base = "xxxxxxx"
-                        print("Referencia con mala ortografia (se asignara una referencia generica)")
-                        nuevas_ventas["referencia_articulo"]= referencia_base
+                    while True:
+                        try:
+                            referencia = input("Por favor ingresa la referencia del artículo: ")
+                            break
+                        except Exception:
+                            print("Por favor, ingrese una referencia válida")
 
-                    try:
-                        nuevas_ventas["cantidad"] = int(input("Ingrese la cantidad: "))
-                    except Exception:
-                        cantidad_base = 0
-                        print("Cantidad mal escrita (se le asignara una cantidad base)")
-                        nuevas_ventas["cantidad"] = cantidad_base
+                    nuevas_ventas["referencia_articulo"] = referencia
 
-                    try:
-                        print("Ingrese la fecha de compra")
-                        nuevas_ventas["fecha_compra"] = input("(ej. 01/10/1997) ")
-                    except Exception:
-                        fecha_compra_base = "01/01/2024"
-                        print("Fecha de compra incorrecta (se le asignara una fecha generica)")
-                        nuevas_ventas["fecha_compra"] =  fecha_compra_base
+                    while True:
+                        try:
+                            cantidad = int(input("Ingrese la cantidad: "))
+                            if(cantidad > 0):
+                                break  
+                        except ValueError:
+                            print("Error: Debe ingresar un número entero.")
+
+                    nuevas_ventas["cantidad"] = cantidad
+
+                    while True:
+                        try:
+                            print("Ingrese la fecha de compra (ej. 01/10/1997): ")
+                            fecha_compra = input()
+                            if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
+                                print("Formato de fecha incorrecto. Se asignará una fecha genérica")
+                                nuevas_ventas["fecha_compra"] = "01/01/2024"
+                            else:
+                                nuevas_ventas["fecha_compra"] = fecha_compra
+                            break  
+                        except ValueError:
+                            fecha_compra_base = "01/01/2024"
+                            print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
+                            nuevas_ventas["fecha_compra"] = fecha_compra_base
+                            break 
                     
                     nuevas_ventas["eliminado"] = estado
                     
@@ -141,16 +168,17 @@ def actualizar_ventas(categoria):
     for i in datos["ventas"]:
         if(i["referencia"] == referencia and i["eliminado"] == False):
 
-            documento = int(input("Ingrese el documento del cliente: "))
+            documento = 0
+            while True:
+                try:
+                    documento = int(input("Ingrese el documento: "))
+                    break
+                except ValueError:
+                    print("Por favor, ingrese un número válido para el documento.")
 
             if(documento in documentos_usuarios()):
 
-                try:
-                    i["documento_usuario"] = documento
-                except ValueError:
-                    documento_base = 00000
-                    print("Documento mal escrito (se le asignara un documento base)")
-                    i["documento_usuario"] = documento_base
+                i["documento_usuario"] = documento
                 
                 if(categoria == "productos"):
 
@@ -165,27 +193,40 @@ def actualizar_ventas(categoria):
                         referencia = input("Ingrese la referencia del producto: ")
 
                         if(referencia in referencia_productos(tipo_producto)):
-                            try:
-                                i["referencia_articulo"] = referencia
-                            except Exception:
-                                referencia_base = "xxxxxxx"
-                                print("Referencia con mala ortografia (se asignara una referencia generica)")
-                                i["referencia_articulo"]= referencia_base
+                            while True:
+                                try:
+                                    referencia = input("Por favor ingresa la referencia del artículo: ")
+                                    break
+                                except Exception:
+                                    print("Por favor, ingrese una referencia válida")
 
-                            try:
-                                i["cantidad"] = int(input("Ingrese la cantidad: "))
-                            except Exception:
-                                cantidad_base = 0
-                                print("Cantidad mal escrita (se le asignara una cantidad base)")
-                                i["cantidad"] = cantidad_base
+                            i["referencia_articulo"] = referencia
 
-                            try:
-                                print("Ingrese la fecha de compra")
-                                i["fecha_compra"] = input("(ej. 01/10/1997) ")
-                            except Exception:
-                                fecha_compra_base = "01/01/2024"
-                                print("Fecha de compra incorrecta (se le asignara una fecha generica)")
-                                i["fecha_compra"] =  fecha_compra_base
+                            while True:
+                                try:
+                                    cantidad = int(input("Ingrese la cantidad: "))
+                                    if(cantidad > 0):
+                                        break  
+                                except ValueError:
+                                    print("Error: Debe ingresar un número entero.")
+
+                            i["cantidad"] = cantidad
+
+                            while True:
+                                try:
+                                    print("Ingrese la fecha de compra (ej. 01/10/1997): ")
+                                    fecha_compra = input()
+                                    if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
+                                        print("Formato de fecha incorrecto. Se asignará una fecha genérica")
+                                        i["fecha_compra"] = "01/01/2024"
+                                    else:
+                                        i["fecha_compra"] = fecha_compra
+                                    break  
+                                except ValueError:
+                                    fecha_compra_base = "01/01/2024"
+                                    print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
+                                    i["fecha_compra"] = fecha_compra_base
+                                    break 
                             
                             guardar_datos(datos, RUTA_JSON)
                             print("")
@@ -206,27 +247,40 @@ def actualizar_ventas(categoria):
                         referencia = input("Ingrese la referencia del servicio: ")
 
                         if(referencia in referencia_servicios(tipo_servicio)):
-                            try:
-                                i["referencia_articulo"] = referencia
-                            except Exception:
-                                referencia_base = "xxxxxxx"
-                                print("Referencia con mala ortografia (se asignara una referencia generica)")
-                                i["referencia_articulo"]= referencia_base
+                            while True:
+                                try:
+                                    referencia = input("Por favor ingresa la referencia del artículo: ")
+                                    break
+                                except Exception:
+                                    print("Por favor, ingrese una referencia válida")
 
-                            try:
-                                i["cantidad"] = int(input("Ingrese la cantidad: "))
-                            except Exception:
-                                cantidad_base = 0
-                                print("Cantidad mal escrita (se le asignara una cantidad base)")
-                                i["cantidad"] = cantidad_base
+                            i["referencia_articulo"] = referencia
 
-                            try:
-                                print("Ingrese la fecha de compra")
-                                i["fecha_compra"] = input("(ej. 01/10/1997) ")
-                            except Exception:
-                                fecha_compra_base = "01/01/2024"
-                                print("Fecha de compra incorrecta (se le asignara una fecha generica)")
-                                i["fecha_compra"] =  fecha_compra_base
+                            while True:
+                                try:
+                                    cantidad = int(input("Ingrese la cantidad: "))
+                                    if(cantidad > 0):
+                                        break  
+                                except ValueError:
+                                    print("Error: Debe ingresar un número entero.")
+
+                            i["cantidad"] = cantidad
+
+                            while True:
+                                try:
+                                    print("Ingrese la fecha de compra (ej. 01/10/1997): ")
+                                    fecha_compra = input()
+                                    if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
+                                        print("Formato de fecha incorrecto. Vuelva a ingresarlo")
+                                        i["fecha_compra"] = "01/01/2024"
+                                    else:
+                                        i["fecha_compra"] = fecha_compra
+                                    break  
+                                except ValueError:
+                                    fecha_compra_base = "01/01/2024"
+                                    print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
+                                    i["fecha_compra"] = fecha_compra_base
+                                    break 
                             
                             guardar_datos(datos, RUTA_JSON)
                             print("")

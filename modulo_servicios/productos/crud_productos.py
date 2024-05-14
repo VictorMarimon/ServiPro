@@ -21,26 +21,46 @@ def crear_productos():
 
     nuevos_productos["id"] = int(cantidad_productos)
 
-    nuevos_productos["referencia"] = input("Ingrese la referencia: ")
+    try:
+        nuevos_productos["referencia"] = input("Ingrese la referencia: ")
+    except Exception:
+        referencia_base = "RF0"
+        print("Referencia con mala ortografia (se asignara una referencia generica)")
+        nuevos_productos["referencia"]= referencia_base
     
     try:
-        nuevos_productos["nombre"]= input("Ingrese el nombre: ")
+        nombre = input("Ingrese el nombre: ")
+        if not nombre:
+            print("El nombre no puede estar vacío (se asignara un nombre generico)")
+            nuevos_productos["nombre"] = "xxxxxxx"
+        else:
+            nuevos_productos["nombre"] = nombre
     except Exception:
         nombre_base = "xxxxxxx"
         print("Nombre con mala ortografia (se asignara un nombre generico)")
         nuevos_productos["nombre"]= nombre_base
 
     try:
-        nuevos_productos["precio"] = int(input("Ingrese el precio: "))
-    except Exception:
+        precio = int(input("Ingrese el precio: "))
+        if precio < 0:
+            print("El precio no puede ser negativo (se le asignará un precio base)")
+            nuevos_productos["precio"] = 0
+        else:
+            nuevos_productos["precio"] = precio
+    except ValueError:
         precio_base = 0
-        print("Precio mal escrito (se le asignara un precio base)")
+        print("El precio ingresado no es válido (se le asignará un precio base)")
         nuevos_productos["precio"] = precio_base
 
     try:
-        print("Ingrese la fecha de creaciòn")
-        nuevos_productos["fecha_creacion"] = input("(ej. 01/10/1997) ")
-    except Exception:
+        print("Ingrese la fecha de creación (ej. 01/10/2020):")
+        fecha_creacion = input()
+        if len(fecha_creacion) != 10 or fecha_creacion[2] != '/' or fecha_creacion[5] != '/':
+            print("La fecha de creación no cumple el formato (se asignará una fecha genérica.)")
+            nuevos_productos["fecha_creacion"] = "01/01/2024"
+        else:
+            nuevos_productos["fecha_creacion"] = fecha_creacion
+    except ValueError:
         fecha_creacion_base = "01/01/2024"
         print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
         nuevos_productos["fecha_creacion"] =  fecha_creacion_base
@@ -63,34 +83,48 @@ def actualizar_productos():
         if(i["referencia"] == referencia and i["eliminado"] == False):
 
             try:
-                i["referencia"]= input("Ingrese la referencia: ")
+                i["referencia"] = input("Ingrese la referencia: ")
             except Exception:
                 referencia_base = "RF0"
                 print("Referencia con mala ortografia (se asignara una referencia generica)")
                 i["referencia"]= referencia_base
 
             try:
-                i["nombre"]= input("Ingrese el nombre: ")
+                nombre = input("Ingrese el nombre: ")
+                if not nombre:
+                    print("El nombre no puede estar vacío (se asignara un nombre generico)")
+                    i["nombre"] = "xxxxxxx"
+                else:
+                    i["nombre"] = nombre
             except Exception:
-                nombre_base = "Servicio"
+                nombre_base = "xxxxxxx"
                 print("Nombre con mala ortografia (se asignara un nombre generico)")
                 i["nombre"]= nombre_base
 
             try:
-                i["precio"] = int(input("Ingrese el precio: "))
-            except Exception:
+                precio = int(input("Ingrese el precio: "))
+                if precio < 0:
+                    print("El precio no puede ser negativo (se le asignará un precio base)")
+                    i["precio"] = 0
+                else:
+                    i["precio"] = precio
+            except ValueError:
                 precio_base = 0
-                print("Precio mal escrito (se le asignara un precio base)")
+                print("El precio ingresado no es válido (se le asignará un precio base)")
                 i["precio"] = precio_base
 
             try:
-                print("Ingrese la fecha de creaciòn")
-                i["fecha_creacion"] = input("(ej. 01/10/1997) ")
-            except Exception:
+                print("Ingrese la fecha de creación (ej. 01/10/2020):")
+                fecha_creacion = input()
+                if len(fecha_creacion) != 10 or fecha_creacion[2] != '/' or fecha_creacion[5] != '/':
+                    print("La fecha de creación no cumple el formato (se asignará una fecha genérica.)")
+                    i["fecha_creacion"] = "01/01/2024"
+                else:
+                    i["fecha_creacion"] = fecha_creacion
+            except ValueError:
                 fecha_creacion_base = "01/01/2024"
                 print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
                 i["fecha_creacion"] =  fecha_creacion_base
-            print("Producto Actualizado")
             return guardar_datos(datos, RUTA_JSON)
         else:
             contador -= 1

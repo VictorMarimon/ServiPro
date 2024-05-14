@@ -22,52 +22,89 @@ def crear_usuarios():
 
     nuevos_usu["id"] = int(cantidad_usuarios)
 
-    nuevos_usu["documento"] = int(input("Ingrese el documento: "))
+    while True:
+        try:
+            documento = int(input("Ingrese el documento: "))
+            break  
+        except ValueError:
+            print("Por favor, ingrese un número válido para el documento.")
+
+    nuevos_usu["documento"] = documento
     
     try:
-        nuevos_usu["nombre"]= input("Ingrese el nombre: ")
+        nombre = input("Ingrese el nombre: ")
+        if not nombre:
+            print("El nombre no puede estar vacío")
+            nuevos_usu["nombre"] = "Usuario"
+        else:
+            nuevos_usu["nombre"] = nombre
     except Exception:
         nombre_base = "Usuario"
-        print("Nombre con mala ortografia (se asignara un nombre generico)")
-        nuevos_usu["nombre"]= nombre_base
+        print("Error. Se asignará un nombre genérico.")
+        nuevos_usu["nombre"] = nombre_base
 
     try:
-        print("Ingrese la direcciòn")
-        nuevos_usu["direccion"] = input("(ej. Carrera 24 #12 - 65) ")
-    except Exception:
-        direccion_base = "Direcciòn desconocida"
-        print("Direccion mala ortografia (se le asignara direccion generica)")
+        print("Ingrese la dirección:")
+        direccion = input("(ej. Carrera 24 #12 - 65) ")
+
+        if not direccion.replace(' ', '').replace('-', '').replace('#', '').replace('.', '').isalnum():
+            print("La dirección contiene caracteres no válidos (Se asignará una dirección genérica).")
+            nuevos_usu["direccion"] = "Dirección desconocida"
+        else:
+            nuevos_usu["direccion"] = direccion
+    except ValueError:
+        direccion_base = "Dirección desconocida"
+        print("Error. Se asignará una dirección genérica:", direccion_base)
         nuevos_usu["direccion"] = direccion_base
 
     try:
-        nuevos_usu["telefono"] = int(input("Ingrese el telefono: "))
-    except Exception:
+        telefono = int(input("Ingrese el telefono: "))
+        if(len(telefono) < 10 and len(telefono) > 10):
+            print(f"{telefono} No es un telefono, se le asignara un telefono genérico")
+            i["telefono"] = 0000000000
+        else:
+            i["telefono"] = telefono
+    except ValueError:
         telefono_base = 0000000000
         print("Telefono mal escrito (se le asignara un telefono generico)")
         nuevos_usu["telefono"] = telefono_base
     
     try:
-        print("Ingrese el correo electronico")
-        nuevos_usu["email"] = input("(ej. daniel@gmail.com) ")
-    except Exception:
-        email_base = "none@none.com"
-        print("Email incorrecto (se le asignara un email generico)")
-        nuevos_usu["email"] = email_base
+        print("Por favor, ingrese su correo electrónico:")
+        email = input("(por ejemplo, daniel@gmail.com): ")
+        if "@" not in email or "." not in email:
+            print("El correo electrónico debe contener un '@' y un '.' (Se le asignará un correo electrónico genérico)")
+            nuevos_usu["email"] = "none@none.com"
+        else:
+            nuevos_usu["email"] = email
+    except ValueError :
+        print(f"Error. Se le asignará un correo electrónico genérico.")
+        nuevos_usu["email"] = "none@none.com"
 
     try:
-        print("Ingrese la fecha de nacimiento")
-        nuevos_usu["nacimiento"] = input("(ej. 01/10/1997) ")
-    except Exception:
+        print("Por favor ingrese su fecha de nacimiento (ej. 01/10/1997): ")
+        fecha_nacimiento = input()
+        if len(fecha_nacimiento) != 10 or fecha_nacimiento[2] != '/' or fecha_nacimiento[5] != '/':
+            print("La fecha de nacimiento no cumple el formato (se asignará una fecha genérica.)")
+            nuevos_usu["nacimiento"] = "01/01/2001"
+        else:
+            nuevos_usu["nacimiento"] = fecha_nacimiento
+    except ValueError:
         fecha_nacimiento_base = "01/01/2001"
-        print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
-        nuevos_usu["nacimiento"] =  fecha_nacimiento_base
+        print("La fecha de nacimiento ingresada no es válida (se asignará una fecha genérica.)")
+        nuevos_usu["nacimiento"] = fecha_nacimiento_base
 
     try:
-        print("Ingrese la fecha de afiliaciòn")
-        nuevos_usu["fecha_afiliacion"] = input("(ej. 01/10/1997) ")
-    except Exception:
+        print("Ingrese la fecha de afiliación (ej. 01/10/2020):")
+        fecha_afiliacion = input()
+        if len(fecha_afiliacion) != 10 or fecha_afiliacion[2] != '/' or fecha_afiliacion[5] != '/':
+            print("La fecha de afiliación no cumple el formato (se asignará una fecha genérica.)")
+            nuevos_usu["fecha_afiliacion"] = "01/01/2024"
+        else:
+            nuevos_usu["fecha_afiliacion"] = fecha_afiliacion
+    except ValueError:
         fecha_afiliacion_base = "01/01/2024"
-        print("Fecha de afiliacion incorrecta (se le asignara una fecha generica)")
+        print("Fecha de afiliacion ingresada no es válida, se asignará una fecha genérica.")
         nuevos_usu["fecha_afiliacion"] =  fecha_afiliacion_base
 
     nuevos_usu["servicios"] = 0
@@ -89,49 +126,79 @@ def actualizar_usuarios():
     for i in datos["usuarios"]:
         if(i["documento"] == documento and i["eliminado"] == False):
             try:
-                i["nombre"]= input("Ingrese el nombre: ")
+                nombre = input("Ingrese el nombre: ")
+                if not nombre:
+                    print("El nombre no puede estar vacío (Se asignará un nombre genérico.)")
+                    i["nombre"] = "Usuario"
+                else:
+                    i["nombre"] = nombre
             except Exception:
                 nombre_base = "Usuario"
-                print("Nombre con mala ortografia (se asignara un nombre generico)")
-                i["nombre"]= nombre_base
+                print("Error. Se asignará un nombre genérico.")
+                i["nombre"] = nombre_base
 
             try:
-                print("Ingrese la direcciòn")
-                i["direccion"] = input("(ej. Carrera 24 #12 - 65) ")
-            except Exception:
-                direccion_base = "Direcciòn desconocida"
-                print("Direccion mala ortografia (se le asignara direccion generica)")
+                print("Ingrese la dirección:")
+                direccion = input("(ej. Carrera 24 #12 - 65) ")
+
+                if not direccion.replace(' ', '').replace('-', '').replace('#', '').replace('.', '').isalnum():
+                    print("La dirección contiene caracteres no válidos o está vacia (Se asignará una dirección genérica).")
+                    i["direccion"] = "Dirección desconocida"
+                else:
+                    i["direccion"] = direccion
+            except ValueError:
+                direccion_base = "Dirección desconocida"
+                print("Error. Se asignará una dirección genérica:", direccion_base)
                 i["direccion"] = direccion_base
 
             try:
-                i["telefono"] = int(input("Ingrese el telefono: "))
-            except Exception:
+                telefono = int(input("Ingrese el telefono: "))
+                if(len(telefono) < 10 and len(telefono) > 10):
+                    print(f"{telefono} No es un telefono, se le asignara un telefono genérico")
+                    i["telefono"] = 0000000000
+                else:
+                    i["telefono"] = telefono
+            except ValueError:
                 telefono_base = 0000000000
                 print("Telefono mal escrito (se le asignara un telefono generico)")
                 i["telefono"] = telefono_base
             
             try:
-                print("Ingrese el correo electronico")
-                i["email"] = input("(ej. daniel@gmail.com) ")
-            except Exception:
-                email_base = "none@none.com"
-                print("Email incorrecto (se le asignara un email generico)")
-                i["email"] = email_base
+                print("Por favor, ingrese su correo electrónico:")
+                email = input("(por ejemplo, daniel@gmail.com): ")
+                if "@" not in email or "." not in email:
+                    print("El correo electrónico debe contener un '@' y un '.' (Se le asignará un correo electrónico genérico)")
+                    i["email"] = "none@none.com"
+                else:
+                    i["email"] = email
+            except ValueError :
+                print(f"Error. Se le asignará un correo electrónico genérico.")
+                i["email"] = "none@none.com"
 
             try:
-                print("Ingrese la fecha de nacimiento")
-                i["nacimiento"] = input("(ej. 01/10/97) ")
-            except Exception:
-                fecha_nacimiento_base = "00/00/00"
-                print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
-                i["nacimiento"] =  fecha_nacimiento_base
+                print("Por favor ingrese su fecha de nacimiento (ej. 01/10/1997): ")
+                fecha_nacimiento = input()
+                if len(fecha_nacimiento) != 10 or fecha_nacimiento[2] != '/' or fecha_nacimiento[5] != '/':
+                    print("La fecha de nacimiento no cumple el formato (se asignará una fecha genérica.)")
+                    i["nacimiento"] = "01/01/2001"
+                else:
+                    i["nacimiento"] = fecha_nacimiento
+            except ValueError:
+                fecha_nacimiento_base = "01/01/2001"
+                print("La fecha de nacimiento ingresada no es válida (se asignará una fecha genérica.)")
+                i["nacimiento"] = fecha_nacimiento_base
 
             try:
-                print("Ingrese la fecha de afiliaciòn")
-                i["fecha_afiliacion"] = input("(ej. 01/10/97) ")
-            except Exception:
-                fecha_afiliacion_base = "00/00/00"
-                print("Fecha de afiliacion incorrecta (se le asignara una fecha generica)")
+                print("Ingrese la fecha de afiliación (ej. 01/10/2020):")
+                fecha_afiliacion = input()
+                if len(fecha_afiliacion) != 10 or fecha_afiliacion[2] != '/' or fecha_afiliacion[5] != '/':
+                    print("La fecha de afiliación no cumple el formato (se asignará una fecha genérica.)")
+                    i["fecha_afiliacion"] = "01/01/2024"
+                else:
+                    i["fecha_afiliacion"] = fecha_afiliacion
+            except ValueError:
+                fecha_afiliacion_base = "01/01/2024"
+                print("Fecha de afiliacion ingresada no es válida, se asignará una fecha genérica.")
                 i["fecha_afiliacion"] =  fecha_afiliacion_base
 
             datos_compras = compras_usuarios()
