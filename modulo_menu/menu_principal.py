@@ -10,6 +10,7 @@ from modulo_ventas.crud_ventas import *
 from modulo_ventas.servicios_productos import *
 from modulo_servicios.servicios.crud_servicios import *
 from modulo_servicios.productos.crud_productos import *
+from modulo_reportes.manejo_reportes import *
 
 def menu_principal():
     print("Bienvenid@ a ServiPro")
@@ -87,7 +88,7 @@ def menu_administrativo():
             print("")
             print("Opción Incorrecta")
             print("")
-#completo 
+
 def gestion_usuarios():
     while True:
         print("1- Agregar Usuarios")
@@ -123,7 +124,7 @@ def gestion_usuarios():
             print("")
             print("Opción Incorrecta")
             print("")
-#completo
+
 def categoria_usuarios():
     while True:
         print("1- Nuevos Usuarios")
@@ -185,7 +186,7 @@ def historial_usuarios():
             print("")
             print("Opción Incorrecta")
             print("")
-#completo
+
 def personalizacion_servicios():
     while True:
         print("1- Ofertas Servicios")
@@ -294,7 +295,6 @@ def productos_ofertas():
             print("Opción Incorrecta")
             print("")
 
-#completo   
 def gestion_ventas():
     while True:
         print("1- Productos Vendidos")
@@ -425,7 +425,7 @@ def menu_gestion_productos():
             print("Opción Incorrecta")
             print("")
 
-#MENU DE REPORTES (falta)
+#MENU DE REPORTES (terminado)
 
 def menu_reportes():
     while True:
@@ -449,7 +449,7 @@ def menu_reportes():
             print("")
             print("Opción Incorrecta")
             print("")
-#incompleto
+
 def menu_informes():
     while True:
         print("1- Informe Productos/Servicios")
@@ -460,15 +460,16 @@ def menu_informes():
         opcion = input("Seleccione una opción: ")
         if(opcion == "1"):
             print("")
-            #falta
+            total_productos()
+            total_servicios()
             print("")
         elif(opcion == "2"):
             print("")
-            #falta
+            servicios_populares()
             print("")
         elif(opcion == "3"):
             print("")
-            #falta
+            ventas()
             print("")    
         elif(opcion == "0"):
             print("")
