@@ -16,6 +16,7 @@ def menu_principal():
     print("Bienvenid@ a ServiPro")
     print("")
     while True:
+        print("")
         print("1- Modulo Administrativo")
         print("2- Modulo de Servicios")
         print("3- Modulo de Reportes")
@@ -24,6 +25,7 @@ def menu_principal():
         print("")
 
         opcion = input("Selecciona una opcion: ")
+        print("")
 
         if opcion == "1":
             menu_administrativo()
@@ -48,6 +50,7 @@ def menu_administrativo():
     print("MENU ADMINISTRATIVO")
     print("")
     while True:
+        print("")
         print("1- Gestión Usuarios")
         print("2- Categorías Usuarios")
         print("3- Historial de Usuarios")
@@ -56,6 +59,7 @@ def menu_administrativo():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
 
         if opcion == "1":
             gestion_usuarios()
@@ -79,6 +83,7 @@ def menu_administrativo():
 
 def gestion_usuarios():
     while True:
+        print("")
         print("1- Agregar Usuarios")
         print("2- Modificar Usuarios")
         print("3- Listar Usuarios")
@@ -86,6 +91,7 @@ def gestion_usuarios():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             crear_usuarios()
         elif opcion == "2":
@@ -106,11 +112,13 @@ def gestion_usuarios():
 
 def categoria_usuarios():
     while True:
+        print("")
         print("1- Nuevos Usuarios")
         print("2- Usuarios Regulares/Leales")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             nuevos_usuarios()
         elif opcion == "2":
@@ -127,20 +135,19 @@ def categoria_usuarios():
 
 def historial_usuarios():
     while True:
+        print("")
         print("1- Servicios Utilizados por Usuarios")
-        print("2- Consultas")
-        print("3- Reclamaciones")
-        print("4- Sugerencias")
+        print("2- Agregar PQRS")
+        print("3- Listar PQRS")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             compras_usuarios()
         elif opcion == "2":
             pass  # Falta implementar
         elif opcion == "3":
-            pass  # Falta implementar
-        elif opcion == "4":
             pass  # Falta implementar
         elif opcion == "0":
             print("")
@@ -154,11 +161,13 @@ def historial_usuarios():
 
 def personalizacion_servicios():
     while True:
+        print("")
         print("1- Ofertas Servicios")
         print("2- Ofertas Productos")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             servicios_ofertas()
         elif opcion == "2":
@@ -175,6 +184,7 @@ def personalizacion_servicios():
 
 def servicios_ofertas():
     while True:
+        print("")
         print("1- Ofertas Telefonia")
         print("2- Ofertas Internet")
         print("3- Ofertas Televisión")
@@ -183,6 +193,7 @@ def servicios_ofertas():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             ofertas_servicios("telefonia")
         elif opcion == "2":
@@ -205,6 +216,7 @@ def servicios_ofertas():
 
 def productos_ofertas():
     while True:
+        print("")
         print("1- Ofertas Telefonos")
         print("2- Ofertas Computadores")
         print("3- Ofertas Accesorios")
@@ -213,6 +225,7 @@ def productos_ofertas():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             ofertas_productos("telefonos")
         elif opcion == "2":
@@ -235,11 +248,13 @@ def productos_ofertas():
 
 def gestion_ventas():
     while True:
+        print("")
         print("1- Productos Vendidos")
         print("2- Registro Ventas")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             catalogo_ventas()
         elif opcion == "2":
@@ -257,6 +272,7 @@ def gestion_ventas():
 # MENU DE SERVICIOS
 def menu_servicios():
     while True:
+        print("")
         print("MENU DE SERVICIOS")
         print("")
         print("1- Gestión Servicios")
@@ -264,10 +280,11 @@ def menu_servicios():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
-            menu_gestion_servicios()
+            categoria_servicios()
         elif opcion == "2":
-            menu_gestion_productos()
+            categoria_productos()
         elif opcion == "0":
             print("")
             print("Regresando...")
@@ -278,7 +295,71 @@ def menu_servicios():
             print("Opción Incorrecta")
             print("")
 
-def menu_gestion_servicios():
+def categoria_servicios():
+    while True:
+        print("")
+        print("1- Servicio Telefonia")
+        print("2- Servicio Internet")
+        print("3- Servicio Televisión")
+        print("4- Servicio Datos")
+        print("5- Servicio Minutos")
+        print("0- Regresar")
+        print("")
+        opcion = input("Seleccione una opción: ")
+        print("")
+        if opcion == "1":
+            menu_gestion_servicios("telefonia")
+        elif opcion == "2":
+            menu_gestion_servicios("internet")
+        elif opcion == "3":
+           menu_gestion_servicios("television")
+        elif opcion == "3":
+            menu_gestion_servicios("datos")
+        elif opcion == "4":
+            menu_gestion_servicios("minutos")
+        elif opcion == "0":
+            print("")
+            print("Regresando...")
+            print("")
+            break
+        else:
+            print("")
+            print("Opción Incorrecta")
+            print("")
+
+def categoria_productos():
+    while True:
+        print("")
+        print("1- Productos Telefonos")
+        print("2- Productos Computadores")
+        print("3- Productos Accesorios")
+        print("4- Productos Tablets")
+        print("5- Productos Electrodomesticos")
+        print("0- Regresar")
+        print("")
+        opcion = input("Seleccione una opción: ")
+        print("")
+        if opcion == "1":
+            menu_gestion_productos("telefonos")
+        elif opcion == "2":
+            menu_gestion_productos("computadores")
+        elif opcion == "3":
+            menu_gestion_productos("accesorios")
+        elif opcion == "3":
+            menu_gestion_productos("tablets")
+        elif opcion == "4":
+            menu_gestion_productos("electrodomesticos")
+        elif opcion == "0":
+            print("")
+            print("Regresando...")
+            print("")
+            break
+        else:
+            print("")
+            print("Opción Incorrecta")
+            print("")
+
+def menu_gestion_servicios(categoria):
     while True:
         print("")
         print("1- Agregar Servicio")
@@ -288,10 +369,11 @@ def menu_gestion_servicios():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
-            crear_servicios()
+            crear_servicios(categoria)
         elif opcion == "2":
-            actualizar_servicios()
+            actualizar_servicios(categoria)
         elif opcion == "3":
             leer_servicios()
         elif opcion == "4":
@@ -306,7 +388,7 @@ def menu_gestion_servicios():
             print("Opción Incorrecta")
             print("")
 
-def menu_gestion_productos():
+def menu_gestion_productos(categoria):
     while True:
         print("")
         print("1- Agregar Productos")
@@ -316,10 +398,11 @@ def menu_gestion_productos():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
-            crear_productos()
+            crear_productos(categoria)
         elif opcion == "2":
-            actualizar_productos()
+            actualizar_productos(categoria)
         elif opcion == "3":
             leer_productos()
         elif opcion == "4":
@@ -337,12 +420,14 @@ def menu_gestion_productos():
 # MENU DE REPORTES
 def menu_reportes():
     while True:
+        print("")
         print("MENU DE REPORTES")
         print("")
         print("1- Informes")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             menu_informes()
         elif opcion == "0":
@@ -357,12 +442,14 @@ def menu_reportes():
 
 def menu_informes():
     while True:
+        print("")
         print("1- Informe Productos/Servicios")
         print("2- Servicios Populares")
         print("3- Informe Usuarios")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             total_productos()
             total_servicios()
@@ -383,6 +470,7 @@ def menu_informes():
 # MENU DE VENTAS
 def menu_ventas():
     while True:
+        print("")
         print("MENU DE VENTAS")
         print("")
         print("1- Registros")
@@ -391,6 +479,7 @@ def menu_ventas():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             menu_registros()
         elif opcion == "2":
@@ -409,6 +498,7 @@ def menu_ventas():
 
 def gestion_ventas_servicios():
     while True:
+        print("")
         print("1- Agregar Venta")
         print("2- Modificar Venta")
         print("3- Listar Venta")
@@ -416,6 +506,7 @@ def gestion_ventas_servicios():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             crear_ventas("servicios")
         elif opcion == "2":
@@ -436,6 +527,7 @@ def gestion_ventas_servicios():
 
 def gestion_ventas_productos():
     while True:
+        print("")
         print("1- Agregar Venta")
         print("2- Modificar Venta")
         print("3- Listar Venta")
@@ -443,6 +535,7 @@ def gestion_ventas_productos():
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             crear_ventas("productos")
         elif opcion == "2":
@@ -463,11 +556,13 @@ def gestion_ventas_productos():
 
 def menu_registros():
     while True:
+        print("")
         print("1- Productos y Servicios")
         print("2- Registro Ventas")
         print("0- Regresar")
         print("")
         opcion = input("Seleccione una opción: ")
+        print("")
         if opcion == "1":
             leer_registos()
         elif opcion == "2":
