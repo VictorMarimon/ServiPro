@@ -53,7 +53,9 @@ def total_productos():
                         contador_tablets += 1
                     elif(llave == "electrodomesticos"):
                         contador_electrodomesticos += 1
+    print("")
     print(f"Total productos ofrecidos: {cantidad_productos}")
+    print("")
     print(f"Telefonos: {contador_telefonos}") if contador_telefonos > 0 else contador_telefonos
     print(f"Computadores: {contador_computadores}") if contador_computadores > 0 else contador_computadores
     print(f"Accesorios: {contador_accesorios}") if contador_accesorios > 0 else contador_accesorios

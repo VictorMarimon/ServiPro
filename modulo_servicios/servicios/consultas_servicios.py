@@ -4,7 +4,7 @@ sys.path.append("../..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/servicios/servicios.json"
+RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/servicios/servicios.json"
 
 
 def referencia_servicios(categoria):
@@ -30,7 +30,7 @@ def tipo_servicios():
 
 def total_servicios():
     datos = cargar_datos(RUTA_JSON)
-    cantidad_productos = 0
+    cantidad_servicios = 0
 
     contador_telefonia = 0
     contador_internet = 0
@@ -43,7 +43,7 @@ def total_servicios():
         for llave, valor in i.items():
             for j in valor:
                 if(j["eliminado"] == False):
-                    cantidad_productos += 1
+                    cantidad_servicios += 1
                     if(llave == "telefonia"):
                         contador_telefonia += 1
                     elif(llave == "internet"):
@@ -54,7 +54,9 @@ def total_servicios():
                         contador_datos += 1
                     elif(llave == "minutos"):
                         contador_minutos += 1
-    print(f"Total servicios ofrecidos: {cantidad_productos}")
+    print("")
+    print(f"Total servicios ofrecidos: {cantidad_servicios}")
+    print("")
     print(f"Telefonia: {contador_telefonia}") if contador_telefonia > 0 else contador_telefonia
     print(f"Internet: {contador_internet}") if contador_internet > 0 else contador_internet
     print(f"Televisión: {contador_television}") if contador_television > 0 else contador_television
