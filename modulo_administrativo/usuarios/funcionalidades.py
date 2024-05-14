@@ -118,7 +118,7 @@ def ofertas_servicios(categoria):
         for j in datos_ventas["ventas"]:
             if(i["documento"] == j["documento_usuario"]):
                 contador_usuarios += 1
-                for k in datos_servicios["servicios"][0]["telefonia"]:
+                for k in datos_servicios["servicios"][0][categoria]:
                     if(j["referencia_articulo"] == k["referencia"]):
                         contador_servicios += 1
                         precio = k["precio"]
