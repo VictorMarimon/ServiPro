@@ -67,7 +67,7 @@ def ofertas_productos(categoria):
     total = 0
 
     monto_cliente = 0
-    monto_minimo = 300
+    monto_minimo = 2000000
     for i in datos_clientes["usuarios"]:
         for j in datos_ventas["ventas"]:
             if(i["documento"] == j["documento_usuario"]):
@@ -113,7 +113,7 @@ def ofertas_servicios(categoria):
     total = 0
 
     monto_cliente = 0
-    monto_minimo = 9000
+    monto_minimo = 250000
     for i in datos_clientes["usuarios"]:
         for j in datos_ventas["ventas"]:
             if(i["documento"] == j["documento_usuario"]):

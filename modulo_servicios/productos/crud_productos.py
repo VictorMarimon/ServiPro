@@ -6,14 +6,14 @@ from datosGenerales.datos import *
 
 RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/productos/productos.json"
 
-def crear_productos():
+def crear_productos(categoria):
     datos = cargar_datos(RUTA_JSON)
     nuevos_productos = {}
     print(" ")
     print(" AGREGAR PRODUCTOS ")
     print(" ")
 
-    cantidad_productos = int(len(datos["productos"][0]["telefonos"]))
+    cantidad_productos = int(len(datos["productos"][0][categoria]))
     estado = False
 
     for i in range(0, cantidad_productos):
@@ -21,12 +21,32 @@ def crear_productos():
 
     nuevos_productos["id"] = int(cantidad_productos)
 
+    productos_registrados = []
+
+    for i in datos["productos"][0][categoria]:
+        productos_registrados.append(i["referencia"])
+
     try:
-        nuevos_productos["referencia"] = input("Ingrese la referencia: ")
+        referencia = input("Ingrese la referencia: ")
+        nuevos_productos["referencia"] = referencia
     except Exception:
-        referencia_base = "RF0"
+        referencia_base = f"RF0{cantidad_productos}"
         print("Referencia con mala ortografia (se asignara una referencia generica)")
         nuevos_productos["referencia"]= referencia_base
+
+    while True:
+        if(referencia in productos_registrados):
+            print(f"La referencia {referencia} ya existe")
+            try:
+                referencia = input("Ingrese la referencia: ")
+            except Exception:
+                referencia_base = f"RF0{str(cantidad_productos)}"
+                print("Referencia con mala ortografia (se asignara una referencia generica)")
+                nuevos_productos["referencia"]= referencia_base
+        else:
+            nuevos_productos["referencia"] = referencia
+            break
+
     
     try:
         nombre = input("Ingrese el nombre: ")
@@ -68,26 +88,45 @@ def crear_productos():
     nuevos_productos["eliminado"] = estado
 
     
-    datos["productos"][0]["telefonos"].append(nuevos_productos)
+    datos["productos"][0][categoria].append(nuevos_productos)
     guardar_datos(datos, RUTA_JSON)
     print("")
-    print("Producto Registrado")
+    print(f"Producto {categoria} Registrado")
 
-def actualizar_productos():
+def actualizar_productos(categoria):
     datos = cargar_datos(RUTA_JSON)
 
-    contador = int(len(datos["productos"][0]["telefonos"]))
+    productos_registrados = []
+
+    for i in datos["productos"][0][categoria]:
+        productos_registrados.append(i["referencia"])
+
+    contador = int(len(datos["productos"][0][categoria]))
     referencia = input("Ingrese la referencia: ")
     print("")
-    for i in datos["productos"][0]["telefonos"]:
+    for i in datos["productos"][0][categoria]:
         if(i["referencia"] == referencia and i["eliminado"] == False):
 
             try:
-                i["referencia"] = input("Ingrese la referencia: ")
+                nueva_referencia = input("Ingrese la nueva referencia: ")
+                i["referencia"] = nueva_referencia
             except Exception:
-                referencia_base = "RF0"
+                referencia_base = f"RF0{str(contador)}"
                 print("Referencia con mala ortografia (se asignara una referencia generica)")
                 i["referencia"]= referencia_base
+
+            while True:
+                if(nueva_referencia in productos_registrados):
+                    print(f"La referencia {nueva_referencia} ya existe")
+                    try:
+                        nueva_referencia = input("Ingrese la referencia: ")
+                    except Exception:
+                        referencia_base = f"RF0{str(contador)}"
+                        print("Referencia con mala ortografia (se asignara una referencia generica)")
+                        i["referencia"]= referencia_base
+                else:
+                    i["referencia"] = nueva_referencia
+                    break
 
             try:
                 nombre = input("Ingrese el nombre: ")
@@ -129,7 +168,7 @@ def actualizar_productos():
         else:
             contador -= 1
     if(contador == 0):
-        print("El producto no existe")
+        print(f"El producto {referencia} no existe")
 
 def leer_productos():
     datos_json = cargar_datos(RUTA_JSON)

@@ -22,15 +22,30 @@ def crear_usuarios():
 
     nuevos_usu["id"] = int(cantidad_usuarios)
 
+    documentos_registrados = []
+
+    for i in datos["usuarios"]:
+        documentos_registrados.append(i["documento"])
+    
+    
     while True:
         try:
             documento = int(input("Ingrese el documento: "))
             break  
         except ValueError:
-            print("Por favor, ingrese un número válido para el documento.")
+            print("Por favor, ingrese un número válido para el documento.")    
 
-    nuevos_usu["documento"] = documento
-    
+    while True:
+        if(documento in documentos_registrados):
+            print(f"El documento {documento} ya está registrado.")
+            try:
+                documento = int(input("Ingrese el documento: "))
+            except ValueError:
+                print("Por favor, ingrese un número válido para el documento.") 
+        else:     
+            nuevos_usu["documento"] = documento
+            break
+
     try:
         nombre = input("Ingrese el nombre: ")
         if not nombre:
@@ -59,16 +74,12 @@ def crear_usuarios():
 
     try:
         telefono = int(input("Ingrese el telefono: "))
-        if(len(telefono) < 10 and len(telefono) > 10):
-            print(f"{telefono} No es un telefono, se le asignara un telefono genérico")
-            i["telefono"] = 0000000000
-        else:
-            i["telefono"] = telefono
+        i["telefono"] = telefono
     except ValueError:
         telefono_base = 0000000000
         print("Telefono mal escrito (se le asignara un telefono generico)")
         nuevos_usu["telefono"] = telefono_base
-    
+
     try:
         print("Por favor, ingrese su correo electrónico:")
         email = input("(por ejemplo, daniel@gmail.com): ")
@@ -108,10 +119,10 @@ def crear_usuarios():
         nuevos_usu["fecha_afiliacion"] =  fecha_afiliacion_base
 
     nuevos_usu["servicios"] = 0
-    
+
     nuevos_usu["eliminado"] = estado
 
-    
+
     datos["usuarios"].append(nuevos_usu)
     guardar_datos(datos, RUTA_JSON)
     print("")
@@ -153,11 +164,7 @@ def actualizar_usuarios():
 
             try:
                 telefono = int(input("Ingrese el telefono: "))
-                if(len(telefono) < 10 and len(telefono) > 10):
-                    print(f"{telefono} No es un telefono, se le asignara un telefono genérico")
-                    i["telefono"] = 0000000000
-                else:
-                    i["telefono"] = telefono
+                i["telefono"] = telefono
             except ValueError:
                 telefono_base = 0000000000
                 print("Telefono mal escrito (se le asignara un telefono generico)")

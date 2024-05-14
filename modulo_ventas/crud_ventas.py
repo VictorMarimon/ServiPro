@@ -20,10 +20,30 @@ def crear_ventas(categoria):
     cantidad_ventas = int(len(datos["ventas"]))
     estado = False
 
+    ventas_registradas = []
+
+    for i in datos["ventas"]:
+        ventas_registradas.append(i["referencia"])
+
     for i in range(0, cantidad_ventas):
         cantidad_ventas += 1
 
     nuevas_ventas["id"] = int(cantidad_ventas)
+
+    referencia = input("Ingrese la referencia: ")
+
+    while True:
+        if(referencia in ventas_registradas):
+            print(f"La referencia {referencia} ya existe")
+            try:
+                referencia = input("Ingrese la referencia: ")
+            except Exception:
+                referencia_base = f"RF0{str(cantidad_ventas)}"
+                print("Referencia con mala ortografia (se asignara una referencia generica)")
+                nuevas_ventas["referencia"]= referencia_base
+        else:
+            nuevas_ventas["referencia"] = referencia
+            break
 
     nuevas_ventas["referencia"] = input("Ingrese la referencia: ")
 
@@ -162,8 +182,14 @@ def crear_ventas(categoria):
 def actualizar_ventas(categoria):
     datos = cargar_datos(RUTA_JSON)
 
+    ventas_registradas = []
+
+    for i in datos["ventas"]:
+        ventas_registradas.append(i["referencia"])
+
     contador = int(len(datos["ventas"]))
     referencia = input("Ingrese la referencia: ")
+    
     print("")
     for i in datos["ventas"]:
         if(i["referencia"] == referencia and i["eliminado"] == False):
