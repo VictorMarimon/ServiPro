@@ -1,10 +1,13 @@
 import sys
+import os
 
 sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_administrativo/usuarios/usuarios.json"
+#RUTAS
+ruta_base = os.path.dirname(os.path.abspath(__file__))
+RUTA_JSON = os.path.join(ruta_base,  "usuarios.json")
 
 def fecha_afiliacion(documento):
     datos_json = cargar_datos(RUTA_JSON)

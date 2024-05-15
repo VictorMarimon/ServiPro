@@ -1,10 +1,12 @@
 import sys
+import os
 
 sys.path.append("../..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/productos/productos.json"
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+RUTA_JSON = os.path.join(project_root, "modulo_servicios", "productos", "productos.json")
 
 def referencia_productos(categoria):
     datos = cargar_datos(RUTA_JSON)

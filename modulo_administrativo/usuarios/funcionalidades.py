@@ -1,4 +1,5 @@
 import sys
+import os
 
 sys.path.append("..")
 
@@ -7,10 +8,12 @@ from datosGenerales.datos import *
 from modulo_administrativo.usuarios.consultas_usuarios import fecha_afiliacion
 from modulo_ventas.servicios_productos import compras_usuarios
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_administrativo/usuarios/usuarios.json"
-RUTA_JSON_VENTAS = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/ventas.json"
-RUTA_JSON_PRODUCTOS = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/productos/productos.json"
-RUTA_JSON_SERVICIOS = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/servicios/servicios.json"
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+RUTA_JSON = os.path.join(project_root, "modulo_administrativo", "usuarios", "usuarios.json")
+RUTA_JSON_VENTAS = os.path.join(project_root, "modulo_ventas", "ventas.json")
+RUTA_JSON_PRODUCTOS = os.path.join(project_root, "modulo_servicios", "productos", "productos.json")
+RUTA_JSON_SERVICIOS = os.path.join(project_root, "modulo_servicios", "servicios", "servicios.json")
+
 
 def nuevos_usuarios():
     año_actual = 2024

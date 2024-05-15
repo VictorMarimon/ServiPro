@@ -1,10 +1,12 @@
 import sys
+import os
 
 sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_servicios/servicios/servicios.json"
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+RUTA_JSON = os.path.join(project_root, "modulo_servicios", "servicios", "servicios.json")
 
 def crear_servicios(categoria):
     datos = cargar_datos(RUTA_JSON)
@@ -44,9 +46,9 @@ def crear_servicios(categoria):
             except Exception:
                 referencia_base = f"RF0{str(cantidad_servicios)}"
                 print("Referencia con mala ortografia (se asignara una referencia generica)")
-                servicios_registrados["referencia"]= referencia_base
+                nuevos_servicio["referencia"]= referencia_base
         else:
-            servicios_registrados["referencia"] = referencia
+            nuevos_servicio["referencia"] = referencia
             break
     
     try:

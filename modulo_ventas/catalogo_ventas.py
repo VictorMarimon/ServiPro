@@ -1,11 +1,13 @@
 import sys
+import os
 
 sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/ventas.json"
-RUTA_JSON_CATALOGO = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/catalogo_ventas.json"
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+RUTA_JSON = os.path.join(project_root, "modulo_ventas", "ventas.json")
+RUTA_JSON_CATALOGO = os.path.join(project_root, "modulo_ventas", "catalogo_ventas.json")
 
 def actualizar_catalogo_ventas():
     datos = cargar_datos(RUTA_JSON_CATALOGO)

@@ -1,4 +1,5 @@
 import sys
+import os
 
 sys.path.append("..")
 
@@ -7,8 +8,9 @@ from modulo_servicios.servicios.consultas_servicios import servicios_catalogo
 from modulo_administrativo.usuarios.consultas_usuarios import nombres_documentos_usuarios
 from datosGenerales.datos import *
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/registro.json"
-RUTA_JSON_VENTAS = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/ventas.json"
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+RUTA_JSON = os.path.join(project_root, "modulo_ventas", "registro.json")
+RUTA_JSON_VENTAS = os.path.join(project_root, "modulo_ventas", "ventas.json")
 
 def actualizar_registro():
     datos = cargar_datos(RUTA_JSON)

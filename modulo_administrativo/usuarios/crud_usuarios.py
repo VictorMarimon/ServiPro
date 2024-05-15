@@ -1,11 +1,14 @@
 import sys
+import os
 
 sys.path.append("..")
 
 from datosGenerales.datos import *
 from modulo_ventas.servicios_productos import compras_usuarios
 
-RUTA_JSON = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_administrativo/usuarios/usuarios.json"
+#RUTAS
+ruta_base = os.path.dirname(os.path.abspath(__file__))
+RUTA_JSON = os.path.join(ruta_base,  "usuarios.json")
 
 def crear_usuarios():
     datos = cargar_datos(RUTA_JSON)

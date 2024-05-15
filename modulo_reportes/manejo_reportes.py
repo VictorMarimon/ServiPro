@@ -1,10 +1,12 @@
 import sys
+import os
 
 sys.path.append("..")
 
 from datosGenerales.datos import *
 
-RUTA_JSON_VENTAS = "C:/Users/PC/Desktop/Proyecto---Campus/modulo_ventas/ventas.json"
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+RUTA_JSON_VENTAS = os.path.join(project_root, "modulo_ventas", "ventas.json")
 
 def servicios_populares():
     datos_ventas = cargar_datos(RUTA_JSON_VENTAS)
