@@ -5,10 +5,32 @@
             "documento": 10000,
             "nombre": "Victor Marimon",
             "direccion": "carrera 25",
-            "telefono": 0,
+            "telefono": 321000214,
             "email": "none@none.com",
             "nacimiento": "01/01/2001",
             "fecha_afiliacion": "01/01/2024",
+            "servicios": 0,
+            "eliminado": false
+        },
+        {
+            "id": 2,
+            "documento": 10003,
+            "nombre": "Daniel Perez",
+            "direccion": "Carrera 15",
+            "email": "dani@gmail.com",
+            "nacimiento": "02/03/1990",
+            "fecha_afiliacion": "15/05/2024",
+            "servicios": 0,
+            "eliminado": false
+        },
+        {
+            "id": 2,
+            "documento": 10004,
+            "nombre": "Cristian Suarez",
+            "direccion": "Carrera 2",
+            "email": "cris@gmail.com",
+            "nacimiento": "22/03/1992",
+            "fecha_afiliacion": "25/05/2024",
             "servicios": 0,
             "eliminado": false
         }

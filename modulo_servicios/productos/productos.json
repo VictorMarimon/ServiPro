@@ -1,11 +1,46 @@
 {
     "productos": [
         {
-            "telefonos": [],
-            "computadores": [],
-            "accesorios": [],
-            "tablets": [],
-            "electrodomesticos": []
+            "telefonos": [{
+                "id": 0,
+                "referencia": "TEL-1",
+                "nombre": "Iphone 15",
+                "precio": 3000000,
+                "fecha_creacion": "15/05/2024",
+                "eliminado": false
+            }],
+            "computadores": [{
+                "id": 0,
+                "referencia": "HP-12-23",
+                "nombre": "HP NoteBook",
+                "precio": 2700000,
+                "fecha_creacion": "15/05/2024",
+                "eliminado": false
+            }],
+            "accesorios": [{
+                "id": 0,
+                "referencia": "ACC-1",
+                "nombre": "Apple Watch",
+                "precio": 1400000,
+                "fecha_creacion": "15/05/2024",
+                "eliminado": false
+            }],
+            "tablets": [{
+                "id": 0,
+                "referencia": "TAB-1",
+                "nombre": "Tablet Samsung",
+                "precio": 700000,
+                "fecha_creacion": "15/05/2024",
+                "eliminado": false
+            }],
+            "electrodomesticos": [{
+                "id": 0,
+                "referencia": "ELE-1",
+                "nombre": "Lavadora Samsun 2024",
+                "precio": 2500000,
+                "fecha_creacion": "15/05/2024",
+                "eliminado": false
+            }]
         }
     ]
 }

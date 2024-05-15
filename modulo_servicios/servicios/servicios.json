@@ -1,11 +1,64 @@
 {
     "servicios": [
         {
-            "telefonia": [],
-            "internet": [],
-            "television": [],
-            "datos": [],
-            "minutos": []
+            "telefonia": [
+                {
+                    "id": 0,
+                    "referencia": "PR-TL-1",
+                    "nombre": "Minutos Ilimitados Hogar",
+                    "precio": 30000,
+                    "fecha_creacion": "15/05/2024",
+                    "eliminado": false
+                },
+                {
+                    "id": 2,
+                    "referencia": "PR-TL-2",
+                    "nombre": "asd",
+                    "precio": 0,
+                    "fecha_creacion": "01/01/2024",
+                    "eliminado": false
+                }
+            ],
+            "internet": [
+                {
+                    "id": 0,
+                    "referencia": "PR-IN-1",
+                    "nombre": "Internet 400Mpbs",
+                    "precio": 75000,
+                    "fecha_creacion": "15/05/2024",
+                    "eliminado": false
+                }
+            ],
+            "television": [
+                {
+                    "id": 0,
+                    "referencia": "PR-TV-1",
+                    "nombre": "Plan Pro Claro",
+                    "precio": 60000,
+                    "fecha_creacion": "15/05/2024",
+                    "eliminado": false
+                }
+            ],
+            "datos": [
+                {
+                    "id": 0,
+                    "referencia": "PR-DT-1",
+                    "nombre": "Datos Ilimitados",
+                    "precio": 59000,
+                    "fecha_creacion": "15/05/2024",
+                    "eliminado": false
+                }
+            ],
+            "minutos": [
+                {
+                    "id": 0,
+                    "referencia": "PR-MN-1",
+                    "nombre": "Minutos Ilimitados",
+                    "precio": 60000,
+                    "fecha_creacion": "15/05/2024",
+                    "eliminado": false
+                }
+            ]
         }
     ]
 }
