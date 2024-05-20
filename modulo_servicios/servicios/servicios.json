@@ -12,9 +12,17 @@
                 },
                 {
                     "id": 2,
-                    "referencia": "PR-TL-2",
-                    "nombre": "asd",
-                    "precio": 0,
+                    "referencia": "PR-TL-4",
+                    "nombre": "Minutos 5G",
+                    "precio": 75000,
+                    "fecha_creacion": "01/01/2024",
+                    "eliminado": true
+                },
+                {
+                    "id": 4,
+                    "referencia": "PR-TL-3",
+                    "nombre": "Minutos Simcard VIrtual",
+                    "precio": 1200000,
                     "fecha_creacion": "01/01/2024",
                     "eliminado": false
                 }

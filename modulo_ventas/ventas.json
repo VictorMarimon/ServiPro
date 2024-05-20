@@ -1,4 +1,26 @@
 {
     "ventas": [
+        {
+            "id": 0,
+            "referencia": "HP-12-23",
+            "documento_usuario": 10004,
+            "categoria": "productos",
+            "tipo": "computadores",
+            "referencia_articulo": "HP-12-23",
+            "cantidad": 5,
+            "fecha_compra": "01/01/2024",
+            "eliminado": true
+        },
+        {
+            "id": 2,
+            "referencia": "SERV-1",
+            "documento_usuario": 10004,
+            "categoria": "servicios",
+            "tipo": "minutos",
+            "referencia_articulo": "PR-MN-1",
+            "cantidad": 5,
+            "fecha_compra": "01/01/2024",
+            "eliminado": false
+        }
     ]
 }
