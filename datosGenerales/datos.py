@@ -15,3 +15,13 @@ def guardar_datos(datos, archivo):
     file=open(archivo,"w")
     file.write(diccionario)
     file.close()
+    
+def leer_txt(archivo):
+    with open(archivo, "r") as file:
+        datos = file.read()
+    return datos
+
+def escribir_txt(datos, archivo):
+    with open(archivo, "a") as file:
+        file.write(datos + "\n")
+    
