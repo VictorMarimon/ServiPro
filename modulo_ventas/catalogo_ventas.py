@@ -67,8 +67,8 @@ def catalogo_ventas():
             contador_catalogo += 1
             print("")
             print("Venta No. " , contador_catalogo)
-            print(f"Categoria: {k["categoria"]}")
-            print(f"Tipo: {k["tipo"]}")
-            print(f"Referencia: {k["referencia"]}")
-            print(f"Cantidad: {k["cantidad"]}")
+            print(f"Categoria: {k['categoria']}")
+            print(f"Tipo: {k['tipo']}")
+            print(f"Referencia: {k['referencia']}")
+            print(f"Cantidad: {k['cantidad']}")
     return catalogo

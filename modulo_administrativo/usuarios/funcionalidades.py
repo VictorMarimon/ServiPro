@@ -52,9 +52,9 @@ def usuarios_regulares_leales():
             clientes_categorizados.append(clientes)
     for k in clientes_categorizados:
         if(k["categoria"] == "LEAL"):
-            print(f"El usuario {k["nombre"]} identificado con {k["documento"]} es cliente LEAL")
+            print(f"El usuario {k['nombre']} identificado con {k['documento']} es cliente LEAL")
         elif(k["categoria"] == "REGULAR"):
-            print(f"El usuario {k["nombre"]} identificado con {k["documento"]} es cliente REGULAR")
+            print(f"El usuario {k['nombre']} identificado con {k['documento']} es cliente REGULAR")
             
 def ofertas_productos(categoria):
     datos_clientes = cargar_datos(RUTA_JSON)
@@ -87,7 +87,7 @@ def ofertas_productos(categoria):
                             print("")
                             print(f"CUPON {str(categoria).upper()}")
                             print("")
-                            print(f"El usuario {i["nombre"]} tiene un descuento del 15% en cualquier producto")
+                            print(f"El usuario {i['nombre']} tiene un descuento del 15% en cualquier producto")
                             print("Solo aplica para la tienda virtual")
                             print("")
         precio = 0
@@ -131,7 +131,7 @@ def ofertas_servicios(categoria):
                         if(monto_cliente > monto_minimo):
                             contador_promo += 1
                             print("")
-                            print(f"El usuario {i["nombre"]} tiene un descuento del 15% en cualquier servicio")
+                            print(f"El usuario {i['nombre']} tiene un descuento del 15% en cualquier servicio")
                             print("Solo aplica para la tienda virtual")
                             print("")
                             break
