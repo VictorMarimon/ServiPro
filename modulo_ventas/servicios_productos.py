@@ -8,7 +8,7 @@ from modulo_servicios.servicios.consultas_servicios import servicios_catalogo
 from modulo_administrativo.usuarios.consultas_usuarios import nombres_documentos_usuarios
 from datosGenerales.datos import *
 
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 RUTA_JSON = os.path.join(project_root, "modulo_ventas", "registro.json")
 RUTA_JSON_VENTAS = os.path.join(project_root, "modulo_ventas", "ventas.json")
 
@@ -31,10 +31,10 @@ def leer_registos():
                 print("")
                 print(f"Servicio No. {cantidad_servicios}")
                 print("")
-                print(f"Tipo: {j["articulo"]}")
-                print(f"Referencia: {j["referencia"]}")
-                print(f"Nombre: {j["nombre"]}")
-                print(f"Precio: {j["precio"]}")
+                print(f"Tipo: {j['articulo']}")
+                print(f"Referencia: {j['referencia']}")
+                print(f"Nombre: {j['nombre']}")
+                print(f"Precio: {j['precio']}")
                 print("")
         elif(llave == "productos"):
             print("CATALOGO PRODUCTOS")
@@ -43,10 +43,10 @@ def leer_registos():
                 print("")
                 print(f"Producto No. {cantidad_productos}")
                 print("")
-                print(f"Tipo: {j["articulo"]}")
-                print(f"Referencia: {j["referencia"]}")
-                print(f"Nombre: {j["nombre"]}")
-                print(f"Precio: {j["precio"]}")
+                print(f"Tipo: {j['articulo']}")
+                print(f"Referencia: {j['referencia']}")
+                print(f"Nombre: {j['nombre']}")
+                print(f"Precio: {j['precio']}")
                 print("")
 
 def compras_usuarios():

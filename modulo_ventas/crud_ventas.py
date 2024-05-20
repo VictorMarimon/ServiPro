@@ -8,7 +8,7 @@ from modulo_administrativo.usuarios.consultas_usuarios import documentos_usuario
 from modulo_servicios.servicios.consultas_servicios import *
 from modulo_servicios.productos.consultas_productos import *
 
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 RUTA_JSON = os.path.join(project_root, "modulo_ventas", "ventas.json")
 
 def crear_ventas(categoria):
@@ -32,7 +32,7 @@ def crear_ventas(categoria):
 
     nuevas_ventas["id"] = int(cantidad_ventas)
 
-    referencia = input("Ingrese la referencia: ")
+    referencia = input("Ingrese la referencia de la venta: ")
 
     while True:
         if(referencia in ventas_registradas):
@@ -121,7 +121,7 @@ def crear_ventas(categoria):
                 print(f"El tipo de producto {tipo_producto} NO existe")
         elif(categoria == "servicios"):
             nuevas_ventas["categoria"] = "servicios"
-
+            
             tipo_servicio = input("Ingrese el tipo de servicio: ")
 
             if(tipo_servicio.lower() in tipo_servicios()):
