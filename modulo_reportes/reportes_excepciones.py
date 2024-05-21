@@ -14,6 +14,7 @@ def consultar_reportes():
     print(datos)
         
 def agregar_reportes(dato):
+    dato = "21/05/2024" + dato
     escribir_txt(dato, RUTA_TXT)
     
     #falta utilizar funcion en excepciones
