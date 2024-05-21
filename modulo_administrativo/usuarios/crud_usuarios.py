@@ -5,6 +5,7 @@ sys.path.append("..")
 
 from datosGenerales.datos import *
 from modulo_ventas.servicios_productos import compras_usuarios
+from modulo_reportes.reportes_excepciones import agregar_reportes
 
 #RUTAS
 ruta_base = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +37,8 @@ def crear_usuarios():
             documento = int(input("Ingrese el documento: "))
             break  
         except ValueError:
-            print("Por favor, ingrese un número válido para el documento.")    
+            print("Por favor, ingrese un número válido para el documento.")  
+            agregar_reportes(" -- Reporte Excepciòn documento usuario")  
 
     while True:
         if(documento in documentos_registrados):
@@ -45,6 +47,7 @@ def crear_usuarios():
                 documento = int(input("Ingrese el documento: "))
             except ValueError:
                 print("Por favor, ingrese un número válido para el documento.") 
+                agregar_reportes(" -- Reporte Excepciòn documento usuario")  
         else:     
             nuevos_usu["documento"] = documento
             break
@@ -54,12 +57,14 @@ def crear_usuarios():
         if not nombre:
             print("El nombre no puede estar vacío")
             nuevos_usu["nombre"] = "Usuario"
+            agregar_reportes(" -- Reporte Excepciòn nombre usuario")  
         else:
             nuevos_usu["nombre"] = nombre
     except Exception:
         nombre_base = "Usuario"
         print("Error. Se asignará un nombre genérico.")
         nuevos_usu["nombre"] = nombre_base
+        agregar_reportes(" -- Reporte Excepciòn nombre usuario")  
 
     try:
         print("Ingrese la dirección:")
@@ -68,12 +73,14 @@ def crear_usuarios():
         if not direccion.replace(' ', '').replace('-', '').replace('#', '').replace('.', '').isalnum():
             print("La dirección contiene caracteres no válidos (Se asignará una dirección genérica).")
             nuevos_usu["direccion"] = "Dirección desconocida"
+            agregar_reportes(" -- Reporte Excepciòn dirección usuario")
         else:
             nuevos_usu["direccion"] = direccion
     except ValueError:
         direccion_base = "Dirección desconocida"
         print("Error. Se asignará una dirección genérica:", direccion_base)
         nuevos_usu["direccion"] = direccion_base
+        agregar_reportes(" -- Reporte Excepciòn dirección usuario")  
 
     try:
         telefono = int(input("Ingrese el telefono: "))
@@ -82,6 +89,7 @@ def crear_usuarios():
         telefono_base = 0000000000
         print("Telefono mal escrito (se le asignara un telefono generico)")
         nuevos_usu["telefono"] = telefono_base
+        agregar_reportes(" -- Reporte Excepciòn telefono usuario")  
 
     try:
         print("Por favor, ingrese su correo electrónico:")
@@ -89,11 +97,13 @@ def crear_usuarios():
         if "@" not in email or "." not in email:
             print("El correo electrónico debe contener un '@' y un '.' (Se le asignará un correo electrónico genérico)")
             nuevos_usu["email"] = "none@none.com"
+            agregar_reportes(" -- Reporte Excepciòn email usuario")  
         else:
             nuevos_usu["email"] = email
     except ValueError :
         print(f"Error. Se le asignará un correo electrónico genérico.")
         nuevos_usu["email"] = "none@none.com"
+        agregar_reportes(" -- Reporte Excepciòn email usuario")  
 
     try:
         print("Por favor ingrese su fecha de nacimiento (ej. 01/10/1997): ")
@@ -101,12 +111,14 @@ def crear_usuarios():
         if len(fecha_nacimiento) != 10 or fecha_nacimiento[2] != '/' or fecha_nacimiento[5] != '/':
             print("La fecha de nacimiento no cumple el formato (se asignará una fecha genérica.)")
             nuevos_usu["nacimiento"] = "01/01/2001"
+            agregar_reportes(" -- Reporte Excepciòn fecha nacimiento usuario") 
         else:
             nuevos_usu["nacimiento"] = fecha_nacimiento
     except ValueError:
         fecha_nacimiento_base = "01/01/2001"
         print("La fecha de nacimiento ingresada no es válida (se asignará una fecha genérica.)")
         nuevos_usu["nacimiento"] = fecha_nacimiento_base
+        agregar_reportes(" -- Reporte Excepciòn fecha nacimiento usuario")  
 
     try:
         print("Ingrese la fecha de afiliación (ej. 01/10/2020):")
@@ -114,12 +126,14 @@ def crear_usuarios():
         if len(fecha_afiliacion) != 10 or fecha_afiliacion[2] != '/' or fecha_afiliacion[5] != '/':
             print("La fecha de afiliación no cumple el formato (se asignará una fecha genérica.)")
             nuevos_usu["fecha_afiliacion"] = "01/01/2024"
+            agregar_reportes(" -- Reporte Excepciòn fecha afiliación usuario")  
         else:
             nuevos_usu["fecha_afiliacion"] = fecha_afiliacion
     except ValueError:
         fecha_afiliacion_base = "01/01/2024"
         print("Fecha de afiliacion ingresada no es válida, se asignará una fecha genérica.")
         nuevos_usu["fecha_afiliacion"] =  fecha_afiliacion_base
+        agregar_reportes(" -- Reporte Excepciòn fecha afiliación usuario")  
 
     nuevos_usu["servicios"] = 0
 
@@ -144,12 +158,14 @@ def actualizar_usuarios():
                 if not nombre:
                     print("El nombre no puede estar vacío (Se asignará un nombre genérico.)")
                     i["nombre"] = "Usuario"
+                    agregar_reportes(" -- Reporte Excepciòn nombre usuario") 
                 else:
                     i["nombre"] = nombre
             except Exception:
                 nombre_base = "Usuario"
                 print("Error. Se asignará un nombre genérico.")
                 i["nombre"] = nombre_base
+                agregar_reportes(" -- Reporte Excepciòn nombre usuario")  
 
             try:
                 print("Ingrese la dirección:")
@@ -158,12 +174,14 @@ def actualizar_usuarios():
                 if not direccion.replace(' ', '').replace('-', '').replace('#', '').replace('.', '').isalnum():
                     print("La dirección contiene caracteres no válidos o está vacia (Se asignará una dirección genérica).")
                     i["direccion"] = "Dirección desconocida"
+                    agregar_reportes(" -- Reporte Excepciòn dirección usuario")  
                 else:
                     i["direccion"] = direccion
             except ValueError:
                 direccion_base = "Dirección desconocida"
                 print("Error. Se asignará una dirección genérica:", direccion_base)
                 i["direccion"] = direccion_base
+                agregar_reportes(" -- Reporte Excepciòn dirección usuario")  
 
             try:
                 telefono = int(input("Ingrese el telefono: "))
@@ -172,6 +190,7 @@ def actualizar_usuarios():
                 telefono_base = 0000000000
                 print("Telefono mal escrito (se le asignara un telefono generico)")
                 i["telefono"] = telefono_base
+                agregar_reportes(" -- Reporte Excepciòn telefono usuario")  
             
             try:
                 print("Por favor, ingrese su correo electrónico:")
@@ -179,11 +198,13 @@ def actualizar_usuarios():
                 if "@" not in email or "." not in email:
                     print("El correo electrónico debe contener un '@' y un '.' (Se le asignará un correo electrónico genérico)")
                     i["email"] = "none@none.com"
+                    agregar_reportes(" -- Reporte Excepciòn email usuario")  
                 else:
                     i["email"] = email
             except ValueError :
                 print(f"Error. Se le asignará un correo electrónico genérico.")
                 i["email"] = "none@none.com"
+                agregar_reportes(" -- Reporte Excepciòn email usuario")  
 
             try:
                 print("Por favor ingrese su fecha de nacimiento (ej. 01/10/1997): ")
@@ -191,12 +212,14 @@ def actualizar_usuarios():
                 if len(fecha_nacimiento) != 10 or fecha_nacimiento[2] != '/' or fecha_nacimiento[5] != '/':
                     print("La fecha de nacimiento no cumple el formato (se asignará una fecha genérica.)")
                     i["nacimiento"] = "01/01/2001"
+                    agregar_reportes(" -- Reporte Excepciòn fecha nacimiento usuario") 
                 else:
                     i["nacimiento"] = fecha_nacimiento
             except ValueError:
                 fecha_nacimiento_base = "01/01/2001"
                 print("La fecha de nacimiento ingresada no es válida (se asignará una fecha genérica.)")
                 i["nacimiento"] = fecha_nacimiento_base
+                agregar_reportes(" -- Reporte Excepciòn fecha nacimiento usuario")  
 
             try:
                 print("Ingrese la fecha de afiliación (ej. 01/10/2020):")
@@ -204,12 +227,14 @@ def actualizar_usuarios():
                 if len(fecha_afiliacion) != 10 or fecha_afiliacion[2] != '/' or fecha_afiliacion[5] != '/':
                     print("La fecha de afiliación no cumple el formato (se asignará una fecha genérica.)")
                     i["fecha_afiliacion"] = "01/01/2024"
+                    agregar_reportes(" -- Reporte Excepciòn fecha afiliación usuario")  
                 else:
                     i["fecha_afiliacion"] = fecha_afiliacion
             except ValueError:
                 fecha_afiliacion_base = "01/01/2024"
                 print("Fecha de afiliacion ingresada no es válida, se asignará una fecha genérica.")
                 i["fecha_afiliacion"] =  fecha_afiliacion_base
+                agregar_reportes(" -- Reporte Excepciòn fecha afiliación usuario")  
 
             datos_compras = compras_usuarios()
             contador_datos_compras = 0

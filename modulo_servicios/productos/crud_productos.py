@@ -4,7 +4,7 @@ import os
 sys.path.append("..")
 
 from datosGenerales.datos import *
-
+from modulo_reportes.reportes_excepciones import agregar_reportes
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 RUTA_JSON = os.path.join(project_root,  "modulo_servicios", "productos", "productos.json")
@@ -36,6 +36,7 @@ def crear_productos(categoria):
         referencia_base = f"RF0{cantidad_productos}"
         print("Referencia con mala ortografia (se asignara una referencia generica)")
         nuevos_productos["referencia"]= referencia_base
+        agregar_reportes(" -- Reporte Excepciòn referencia productos")
 
     while True:
         if(referencia in productos_registrados):
@@ -46,6 +47,7 @@ def crear_productos(categoria):
                 referencia_base = f"RF0{str(cantidad_productos)}"
                 print("Referencia con mala ortografia (se asignara una referencia generica)")
                 nuevos_productos["referencia"]= referencia_base
+                agregar_reportes(" -- Reporte Excepciòn referencia productos")
         else:
             nuevos_productos["referencia"] = referencia
             break
@@ -56,24 +58,28 @@ def crear_productos(categoria):
         if not nombre:
             print("El nombre no puede estar vacío (se asignara un nombre generico)")
             nuevos_productos["nombre"] = "xxxxxxx"
+            agregar_reportes(" -- Reporte Excepciòn nombre productos")
         else:
             nuevos_productos["nombre"] = nombre
     except Exception:
         nombre_base = "xxxxxxx"
         print("Nombre con mala ortografia (se asignara un nombre generico)")
         nuevos_productos["nombre"]= nombre_base
+        agregar_reportes(" -- Reporte Excepciòn nombre productos")
 
     try:
         precio = int(input("Ingrese el precio: "))
         if precio < 0:
             print("El precio no puede ser negativo (se le asignará un precio base)")
             nuevos_productos["precio"] = 0
+            agregar_reportes(" -- Reporte Excepciòn precio productos")
         else:
             nuevos_productos["precio"] = precio
     except ValueError:
         precio_base = 0
         print("El precio ingresado no es válido (se le asignará un precio base)")
         nuevos_productos["precio"] = precio_base
+        agregar_reportes(" -- Reporte Excepciòn precio productos")
 
     try:
         print("Ingrese la fecha de creación (ej. 01/10/2020):")
@@ -81,12 +87,14 @@ def crear_productos(categoria):
         if len(fecha_creacion) != 10 or fecha_creacion[2] != '/' or fecha_creacion[5] != '/':
             print("La fecha de creación no cumple el formato (se asignará una fecha genérica.)")
             nuevos_productos["fecha_creacion"] = "01/01/2024"
+            agregar_reportes(" -- Reporte Excepciòn fecha productos")
         else:
             nuevos_productos["fecha_creacion"] = fecha_creacion
     except ValueError:
         fecha_creacion_base = "01/01/2024"
         print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
         nuevos_productos["fecha_creacion"] =  fecha_creacion_base
+        agregar_reportes(" -- Reporte Excepciòn fecha productos")
     
     nuevos_productos["eliminado"] = estado
 
@@ -117,6 +125,7 @@ def actualizar_productos(categoria):
                 referencia_base = f"RF0{str(contador)}"
                 print("Referencia con mala ortografia (se asignara una referencia generica)")
                 i["referencia"]= referencia_base
+                agregar_reportes(" -- Reporte Excepciòn referencia productos")
 
             while True:
                 if(nueva_referencia in productos_registrados):
@@ -127,6 +136,7 @@ def actualizar_productos(categoria):
                         referencia_base = f"RF0{str(contador)}"
                         print("Referencia con mala ortografia (se asignara una referencia generica)")
                         i["referencia"]= referencia_base
+                        agregar_reportes(" -- Reporte Excepciòn referencia productos")
                 else:
                     i["referencia"] = nueva_referencia
                     break
@@ -136,24 +146,28 @@ def actualizar_productos(categoria):
                 if not nombre:
                     print("El nombre no puede estar vacío (se asignara un nombre generico)")
                     i["nombre"] = "xxxxxxx"
+                    agregar_reportes(" -- Reporte Excepciòn nombre productos")
                 else:
                     i["nombre"] = nombre
             except Exception:
                 nombre_base = "xxxxxxx"
                 print("Nombre con mala ortografia (se asignara un nombre generico)")
                 i["nombre"]= nombre_base
+                agregar_reportes(" -- Reporte Excepciòn nombre productos")
 
             try:
                 precio = int(input("Ingrese el precio: "))
                 if precio < 0:
                     print("El precio no puede ser negativo (se le asignará un precio base)")
                     i["precio"] = 0
+                    agregar_reportes(" -- Reporte Excepciòn precio productos")
                 else:
                     i["precio"] = precio
             except ValueError:
                 precio_base = 0
                 print("El precio ingresado no es válido (se le asignará un precio base)")
                 i["precio"] = precio_base
+                agregar_reportes(" -- Reporte Excepciòn precio productos")
 
             try:
                 print("Ingrese la fecha de creación (ej. 01/10/2020):")
@@ -161,12 +175,14 @@ def actualizar_productos(categoria):
                 if len(fecha_creacion) != 10 or fecha_creacion[2] != '/' or fecha_creacion[5] != '/':
                     print("La fecha de creación no cumple el formato (se asignará una fecha genérica.)")
                     i["fecha_creacion"] = "01/01/2024"
+                    agregar_reportes(" -- Reporte Excepciòn fecha productos")
                 else:
                     i["fecha_creacion"] = fecha_creacion
             except ValueError:
                 fecha_creacion_base = "01/01/2024"
                 print("Fecha de nacimiento incorrecta (se le asignara una fecha generica)")
                 i["fecha_creacion"] =  fecha_creacion_base
+                agregar_reportes(" -- Reporte Excepciòn fecha productos")
             return guardar_datos(datos, RUTA_JSON)
         else:
             contador -= 1

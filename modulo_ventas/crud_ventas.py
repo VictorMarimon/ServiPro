@@ -7,6 +7,7 @@ from datosGenerales.datos import *
 from modulo_administrativo.usuarios.consultas_usuarios import documentos_usuarios
 from modulo_servicios.servicios.consultas_servicios import *
 from modulo_servicios.productos.consultas_productos import *
+from modulo_reportes.reportes_excepciones import agregar_reportes
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 RUTA_JSON = os.path.join(project_root, "modulo_ventas", "ventas.json")
@@ -38,11 +39,12 @@ def crear_ventas(categoria):
         if(referencia in ventas_registradas):
             print(f"La referencia {referencia} ya existe")
             try:
-                referencia = input("Ingrese la referencia: ")
+                referencia = input("Ingrese la nueva referencia: ")
             except Exception:
                 referencia_base = f"RF0{str(cantidad_ventas)}"
                 print("Referencia con mala ortografia (se asignara una referencia generica)")
                 nuevas_ventas["referencia"]= referencia_base
+                agregar_reportes(" -- Reporte Excepciòn referencia ventas")
         else:
             nuevas_ventas["referencia"] = referencia
             break
@@ -56,6 +58,7 @@ def crear_ventas(categoria):
             break
         except ValueError:
             print("Por favor, ingrese un número válido para el documento.")
+            agregar_reportes(" -- Reporte Excepciòn documento ventas")
 
     if(documento in documentos_usuarios()):
 
@@ -80,6 +83,7 @@ def crear_ventas(categoria):
                             break
                         except Exception:
                             print("Por favor, ingrese una referencia válida")
+                            agregar_reportes(" -- Reporte Excepciòn referencia ventas")
 
                     nuevas_ventas["referencia_articulo"] = referencia
 
@@ -90,6 +94,7 @@ def crear_ventas(categoria):
                                 break  
                         except ValueError:
                             print("Error: Debe ingresar un número entero.")
+                            agregar_reportes(" -- Reporte Excepciòn cantidad ventas")
 
                     nuevas_ventas["cantidad"] = cantidad
 
@@ -100,6 +105,7 @@ def crear_ventas(categoria):
                             if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
                                 print("Formato de fecha incorrecto. Se asignará una fecha genérica")
                                 nuevas_ventas["fecha_compra"] = "01/01/2024"
+                                agregar_reportes(" -- Reporte Excepciòn fecha ventas")
                             else: 
                                 nuevas_ventas["fecha_compra"] = fecha_compra
                             break  
@@ -107,6 +113,7 @@ def crear_ventas(categoria):
                             fecha_compra_base = "01/01/2024"
                             print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
                             nuevas_ventas["fecha_compra"] = fecha_compra_base
+                            agregar_reportes(" -- Reporte Excepciòn fecha ventas")
                             break 
                     
                     nuevas_ventas["eliminado"] = estado
@@ -137,6 +144,7 @@ def crear_ventas(categoria):
                             break
                         except Exception:
                             print("Por favor, ingrese una referencia válida")
+                            agregar_reportes(+ " -- Reporte Excepciòn referencia ventas")
 
                     nuevas_ventas["referencia_articulo"] = referencia
 
@@ -147,6 +155,7 @@ def crear_ventas(categoria):
                                 break  
                         except ValueError:
                             print("Error: Debe ingresar un número entero.")
+                            agregar_reportes(+ " -- Reporte Excepciòn cantidad ventas")
 
                     nuevas_ventas["cantidad"] = cantidad
 
@@ -157,6 +166,7 @@ def crear_ventas(categoria):
                             if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
                                 print("Formato de fecha incorrecto. Se asignará una fecha genérica")
                                 nuevas_ventas["fecha_compra"] = "01/01/2024"
+                                agregar_reportes(+ " -- Reporte Excepciòn fecha ventas")
                             else:
                                 nuevas_ventas["fecha_compra"] = fecha_compra
                             break  
@@ -164,6 +174,7 @@ def crear_ventas(categoria):
                             fecha_compra_base = "01/01/2024"
                             print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
                             nuevas_ventas["fecha_compra"] = fecha_compra_base
+                            agregar_reportes(+ " -- Reporte Excepciòn fecha ventas")
                             break 
                     
                     nuevas_ventas["eliminado"] = estado
@@ -203,6 +214,7 @@ def actualizar_ventas(categoria):
                     break
                 except ValueError:
                     print("Por favor, ingrese un número válido para el documento.")
+                    agregar_reportes(" -- Reporte Excepciòn documento ventas")
 
             if(documento in documentos_usuarios()):
 
@@ -227,6 +239,7 @@ def actualizar_ventas(categoria):
                                     break
                                 except Exception:
                                     print("Por favor, ingrese una referencia válida")
+                                    agregar_reportes(" -- Reporte Excepciòn referencia ventas")
 
                             i["referencia_articulo"] = referencia
 
@@ -237,6 +250,7 @@ def actualizar_ventas(categoria):
                                         break  
                                 except ValueError:
                                     print("Error: Debe ingresar un número entero.")
+                                    agregar_reportes(" -- Reporte Excepciòn cantidad ventas")
 
                             i["cantidad"] = cantidad
 
@@ -247,6 +261,7 @@ def actualizar_ventas(categoria):
                                     if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
                                         print("Formato de fecha incorrecto. Se asignará una fecha genérica")
                                         i["fecha_compra"] = "01/01/2024"
+                                        agregar_reportes(" -- Reporte Excepciòn fecha ventas")
                                     else:
                                         i["fecha_compra"] = fecha_compra
                                     break  
@@ -254,6 +269,7 @@ def actualizar_ventas(categoria):
                                     fecha_compra_base = "01/01/2024"
                                     print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
                                     i["fecha_compra"] = fecha_compra_base
+                                    agregar_reportes(" -- Reporte Excepciòn fecha ventas")
                                     break 
                             
                             guardar_datos(datos, RUTA_JSON)
@@ -281,6 +297,7 @@ def actualizar_ventas(categoria):
                                     break
                                 except Exception:
                                     print("Por favor, ingrese una referencia válida")
+                                    agregar_reportes(" -- Reporte Excepciòn referencia ventas")
 
                             i["referencia_articulo"] = referencia
 
@@ -291,6 +308,7 @@ def actualizar_ventas(categoria):
                                         break  
                                 except ValueError:
                                     print("Error: Debe ingresar un número entero.")
+                                    agregar_reportes(" -- Reporte Excepciòn cantidad ventas")
 
                             i["cantidad"] = cantidad
 
@@ -301,6 +319,7 @@ def actualizar_ventas(categoria):
                                     if len(fecha_compra) != 10 or fecha_compra[2] != '/' or fecha_compra[5] != '/':
                                         print("Formato de fecha incorrecto. Vuelva a ingresarlo")
                                         i["fecha_compra"] = "01/01/2024"
+                                        agregar_reportes(" -- Reporte Excepciòn fecha ventas")
                                     else:
                                         i["fecha_compra"] = fecha_compra
                                     break  
@@ -308,6 +327,7 @@ def actualizar_ventas(categoria):
                                     fecha_compra_base = "01/01/2024"
                                     print("Formato de fecha incorrecto. Se asignará una fecha genérica (01/01/2024).")
                                     i["fecha_compra"] = fecha_compra_base
+                                    agregar_reportes(" -- Reporte Excepciòn fecha ventas")
                                     break 
                             
                             guardar_datos(datos, RUTA_JSON)
